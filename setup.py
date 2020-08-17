@@ -1,17 +1,18 @@
+#!/usr/bin/env python
 import setuptools
 
 
-with open('requirements.txt', 'r') as f:
-    dependencies = [l.strip() for l in f]
-
-with open("README.md", "r") as fh:
+with open('README.md') as fh:
     long_description = fh.read()
+
+with open('requirements.txt') as f:
+    dependencies = [l.strip() for l in f]
 
 
 setuptools.setup(
     name="ProxyGrab",
     license="MIT",
-    version="0.1",
+    version="0.1.4",
     packages=setuptools.find_packages(),
     author="Skuzzy xD",
     author_email="techdroidroot@gmail.com",
@@ -21,6 +22,5 @@ setuptools.setup(
     keywords="proxyscrape proxies proxygrab proxygrab-python proxylist",
     url="http://github.com/SkuzzyxD/ProxyGrab/",
     install_requires=dependencies,
-    python_requires=">=3.5"
-
+    python_requires=">=3.5",
 )
