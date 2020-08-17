@@ -8,10 +8,12 @@ I made this software to scrap proxies for my web scrapping and other testing pur
 
 ## Installation
 ```shell
-pip install proxygrab
+pip install proxygrab --upgrade
 ```
 
 ## Usage:
+
+### In Python Script
 
 ```py
 import proxygrab
@@ -20,15 +22,23 @@ proxygrab.get_socks5()  # Returns socks5 proxylist
 proxygrab.get_socks4()  # Returns socks4 proxylist
 proxygrab.get_http()  # Returns http proxylist
 proxygrab.get_https()  # Returns https proxylist
+proxygrab.get_proxy(type)  # Type can any one from http, https, socks4, socks5
 ```
+
+### Console
+
+```shell
+proxygrab --help
+```
+Check help and get more arguments!
 
 ## Contribuiting
 
 Wanna help to improve this project?
 
 Make sure to follow these before opening a PR:
-* Make sure your PR is formatted with Black
-* Make sure the package is working
+* Make sure your PR is formatted with Black.
+* Make sure the package is working.
 
 ## Built With
 
@@ -42,7 +52,7 @@ Make sure to follow these before opening a PR:
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## :star: Credits
+## Credits
 Proxy Server data courstey of:
 * [ProxyScrape](https://proxyscrape.com/)
 * [Proxy-List](https://www.proxy-list.download/)
