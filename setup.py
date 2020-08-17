@@ -23,7 +23,7 @@ setuptools.setup(
     keywords="proxyscrape proxies proxygrab proxygrab-python proxylist",
     url="http://github.com/SkuzzyxD/ProxyGrab/",
     install_requires=requirements,
-    python_requires=">=3.5",
+    python_requires=">=3.6",
     entry_points='''
         [console_scripts]
         proxygrab=proxygrab.cmdline:clicmd''',
@@ -31,7 +31,6 @@ setuptools.setup(
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
