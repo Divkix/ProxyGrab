@@ -1,4 +1,4 @@
-from proxygrab.sites import proxyscrape, proxylist
+from .sites import proxyscrape, proxylist
 
 
 def get_proxies_fucn(ptype):
