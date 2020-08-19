@@ -29,9 +29,7 @@ def get_api_proxies_fucn(ptype):
 
 
 def get_scrapper_proxies_fucn(ptype):
-    status3, all_proxies = grab_proxies(ptype)
-    if (status3) == False:
-        raise Exception(exceptions_string)
+    all_proxies = grab_proxies(ptype)
     return all_proxies
 
 
