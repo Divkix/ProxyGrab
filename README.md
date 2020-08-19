@@ -2,17 +2,47 @@
 
 <p align="center">
 <a href="https://pypi.org/project/proxygrab/"><img alt="PyPI" src="https://img.shields.io/pypi/v/proxygrab"></a>
-<a href="https://github.com/SkuzzyxD/ProxyGrab/blob/master/LICENSE"><img alt="PyPI - License" src="https://img.shields.io/pypi/l/proxygrab"></a>
-<a href="https://pepy.tech/project/proxygrab"><img alt="Downloads" src="https://pepy.tech/badge/proxygrab"></a></br>
 <a href="https://github.com/SkuzzyxD/ProxyGrab/actions"><img alt="CI (pip)" src="https://github.com/SkuzzyxD/ProxyGrab/workflows/CI%20%28pip%29/badge.svg"></a>
+<a href="https://github.com/SkuzzyxD/ProxyGrab/blob/master/LICENSE"><img alt="PyPI - License" src="https://img.shields.io/pypi/l/proxygrab"></a>
+<a href="https://pypi.org/project/proxygrab/"><img alt="PyPI - Wheel" src="https://img.shields.io/pypi/wheel/proxygrab.svg"></a>
+<a href="https://pypi.org/project/proxygrab/"><img alt="" src="https://img.shields.io/pypi/pyversions/proxygrab.svg"></a>
+<a href="https://pepy.tech/project/proxygrab"><img alt="Downloads" src="https://pepy.tech/badge/proxygrab"></a>
 </p>
 
 I made this software to scrap proxies for my web scrapping and other testing purposes. This program just uses <a href='https://pypi.org/project/requests/'>requests</a> to get the response from API and return the proxies.
 
+<i>NOTE: This library isn't designed for production use. It's advised to use your own proxies or purchase a service which provides an API. These are merely free ones that are retrieved from sites and should only be used for development or testing purposes.</i>
+
 ## Installation
+
+The latest version of proxygrab is available via `pip`:
 ```shell
 pip install proxygrab --upgrade
 ```
+
+Also, you can even download the source code and install using:
+```shell
+python setup.py install
+```
+
+## Provided Proxies:
+<table style="width:100%">
+  <tr>
+    <th>Provider</th>
+    <th>Proxy Types avaiable</th>
+    <th>Url</th>
+  </tr>
+  <tr>
+    <td>Proxyscrape</td>
+    <td>http, https, socks4, socks5</td>
+    <td>https://proxyscrape.com/</td>
+  </tr>
+  <tr>
+    <td>Proxy-List</td>
+    <td>http, https, socks4, socks5</td>
+    <td>https://www.proxy-list.download/</td>
+  </tr>
+</table>
 
 ## Usage:
 
@@ -81,8 +111,3 @@ Make sure to follow these before opening a PR:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Credits
-Proxy Server data courstey of:
-* [ProxyScrape](https://proxyscrape.com/)
-* [Proxy-List](https://www.proxy-list.download/)
