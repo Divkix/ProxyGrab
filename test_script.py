@@ -1,25 +1,49 @@
 import proxygrab
 
-p1 = proxygrab.get_http()
-print('HTTP:', len(p1))
+try:
+    p1 = proxygrab.get_http()
+    print("HTTP:", len(p1))
+except:
+    pass
 
-p2 = proxygrab.get_https()
-print('HTTPS:', len(p2))
+try:
+    p2 = proxygrab.get_https()
+    print("HTTPS:", len(p2))
+except:
+    pass
 
-p3 = proxygrab.get_socks4()
-print('SOCKS4:', len(p3))
+try:
+    p3 = proxygrab.get_socks4()
+    print("SOCKS4:", len(p3))
+except:
+    pass
 
-p4 = proxygrab.get_socks5()
-print('SOCKS5:', len(p4))
+try:
+    p4 = proxygrab.get_socks5()
+    print("SOCKS5:", len(p4))
+except:
+    pass
 
-p5 = proxygrab.get_proxy('http')
-print('HTTP(GetProxyM):', len(p5))
+try:
+    p5 = proxygrab.get_proxy("http")
+    print("HTTP(GetProxyM):", len(p5))
+except:
+    pass
 
-p6 = proxygrab.get_proxy('https')
-print('HTTPS(GetProxyM):', len(p6))
+try:
+    p6 = proxygrab.get_proxy("https")
+    print("HTTPS(GetProxyM):", len(p6))
+except:
+    pass
 
-p7 = proxygrab.get_proxy('socks4')
-print('SOCKS4(GetProxyM):', len(p7))
+try:
+    p7 = proxygrab.get_proxy("socks4")
+    print("SOCKS4(GetProxyM):", len(p7))
+except:
+    pass
 
-p8 = proxygrab.get_proxy('socks5')
-print('SOCKS5(GetProxyM):', len(p8))
+try:
+    p8 = proxygrab.get_proxy("socks5")
+    print("SOCKS5(GetProxyM):", len(p8))
+except:
+    pass

@@ -12,8 +12,8 @@ exceptions_string = (
 def get_all_proxies_fucn(ptype):
     status1, l1 = proxyscrape(ptype)
     status2, l2 = proxylist(ptype)
-    status3, l3 = grab_proxies(ptype)
-    if (status1 & status2 & status3) == False:
+    l3 = grab_proxies(ptype)
+    if (status1 & status2) == False:
         raise Exception(exceptions_string)
     all_proxies = l1 + l2 + l3
     return all_proxies

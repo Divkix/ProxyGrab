@@ -13,11 +13,7 @@ def grab_proxies(ptype):
         lst += get_uk_proxies(ptype)
     else:
         lst += get_socks_proxies(ptype)
-    if lst != []:
-        status = True
-    else:
-        status = False
-    return status, lst
+    return lst
 
 
 # Only HTTPS Proxies
