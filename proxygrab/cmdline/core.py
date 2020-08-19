@@ -2,6 +2,14 @@ import click
 from proxygrab.package import get_proxy
 
 proxy_types = ["http", "https", "socks4", "socks5"]
+fetch_methods = ("all", "api", "scrapper")
+
+
+def list_methods():
+    a = ""
+    for i in fetch_methods:
+        a += f"{i}, "
+    return a[0:-2]
 
 
 def list_ptypes():
@@ -14,6 +22,14 @@ def list_ptypes():
 @click.command(
     context_settings=dict(help_option_names=["-h", "--help"]),
     options_metavar="<options>",
+)
+@click.option(
+    "--method",
+    "-m",
+    default="all",
+    help=f"Method to get proxies form, available: {list_methods()}",
+    metavar="<method>",
+    show_default=True,
 )
 @click.option(
     "--type",
@@ -35,7 +51,7 @@ def list_ptypes():
     metavar="<int>",
     show_default=True,
 )
-def clicmd(type, save, outfile, count):
+def clicmd(type, save, outfile, count, method):
     """
     This a Command Line Utility from ProxyGrab which can be used to get proxies straight in your terminal or to save them to a file.
     """
@@ -50,7 +66,10 @@ def clicmd(type, save, outfile, count):
     type = type.lower()
     click.echo("Fetching proxies...")
 
-    proxies = get_proxy(type)
+    if method not in fetch_methods:
+        click.echo(f"Only following methods are supported: {list_methods()}")
+        return
+    proxies = get_proxy(type, method)
 
     if count != 0:
         if count <= len(proxies):
