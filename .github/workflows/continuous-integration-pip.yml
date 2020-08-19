@@ -30,6 +30,7 @@ jobs:
       - name: ProxyGrab CLI
         run: |
           proxygrab --help
+          proxygrab -h
 
       - name: Proxygrab test module
         run: python test_script.py

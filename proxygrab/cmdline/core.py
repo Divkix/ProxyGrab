@@ -1,6 +1,15 @@
 import click
 from proxygrab.package import get_proxy
 
+proxy_types = ["http", "https", "socks4", "socks5"]
+
+
+def list_ptypes():
+    a = ""
+    for i in proxy_types:
+        a += f"{i}, "
+    return a[0:-2]
+
 
 @click.command(
     context_settings=dict(help_option_names=["-h", "--help"]),
@@ -10,7 +19,7 @@ from proxygrab.package import get_proxy
     "--type",
     "-t",
     type=str,
-    help="Will get the specific type of proxies, only 4 types of proxies are availabe right now and they are: http, https, socks4, socks5",
+    help=f"Will get the specific type of proxies, only 4 types of proxies are availabe right now and they are: {list_ptypes()}",
     metavar="<proxy type>",
 )
 @click.option(
@@ -34,15 +43,14 @@ def clicmd(type, save, outfile, count):
     if not type:
         click.echo("No Proxy type specified, check help by proxygrab --help")
         return
+    if type not in proxy_types:
+        click.echo(f"Only following types are supported: {list_ptypes()}")
+        return
 
     type = type.lower()
     click.echo("Fetching proxies...")
 
-    if type in ("http", "https", "socks4", "socks5"):
-        proxies = get_proxy(type)
-    else:
-        click.echo("Please choose a valid type from: http, https, socks4, socks5")
-        return
+    proxies = get_proxy(type)
 
     if count != 0:
         if count <= len(proxies):
