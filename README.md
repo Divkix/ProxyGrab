@@ -1,15 +1,15 @@
-<h1 align="center">ProxyGrab</h2>
+# ProxyGrab
 
-<p align="center">
-<a href="https://pypi.org/project/ProxyGrab/"><img alt="PyPI" src="https://img.shields.io/pypi/v/ProxyGrab"></a>
-<a href="https://github.com/SkuzzyxD/ProxyGrab/actions"><img alt="CI (pip)" src="https://github.com/SkuzzyxD/ProxyGrab/workflows/CI%20%28pip%29/badge.svg"></a>
-<a href="https://github.com/SkuzzyxD/ProxyGrab/blob/master/LICENSE"><img alt="PyPI - License" src="https://img.shields.io/pypi/l/ProxyGrab"></a>
-<a href="https://pypi.org/project/proxygrab/"><img alt="PyPI - Wheel" src="https://img.shields.io/pypi/wheel/ProxyGrab.svg"></a>
-<a href="https://pypi.org/project/proxygrab/"><img alt="" src="https://img.shields.io/pypi/pyversions/ProxyGrab.svg"></a>
-<a href="https://pepy.tech/project/ProxyGrab"><img alt="Downloads" src="https://pepy.tech/badge/ProxyGrab"></a>
-</p>
+[![PyPI](https://img.shields.io/pypi/v/ProxyGrab)](https://pypi.org/project/ProxyGrab/)
+[![CI (pip)](https://github.com/SkuzzyxD/ProxyGrab/workflows/CI%20%28pip%29/badge.svg)](https://github.com/SkuzzyxD/ProxyGrab/actions)
+[![PyPI - License](https://img.shields.io/pypi/l/ProxyGrab)](https://github.com/SkuzzyxD/ProxyGrab/blob/master/LICENSE)
+[![PyPI - Wheel](https://img.shields.io/pypi/wheel/ProxyGrab.svg)](https://pypi.org/project/proxygrab/)
+[![PyPI - Python Versions](https://img.shields.io/pypi/pyversions/ProxyGrab.svg)](https://pypi.org/project/proxygrab/)  
+[![Documentation](https://api.netlify.com/api/v1/badges/07f64c3d-03c2-48e5-b947-0c75d38ff8ec/deploy-status)](https://ProxyGrab.netlify.com)
+[![Downloads](https://pepy.tech/badge/ProxyGrab)](https://pepy.tech/project/ProxyGrab)
+[![codestyle-black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-I made this software to scrap proxies for my web scrapping and other testing purposes. This program just uses <a href='https://pypi.org/project/requests/'>requests</a> to get the response from API and return the proxies.
+I made this software to scrap proxies for my web scrapping and other testing purposes. This program just uses [requests](https://pypi.org/project/requests/) to get the response from API and return the proxies.
 
 <i>NOTE: This library isn't designed for production use. It's advised to use your own proxies or purchase a service which provides an API. These are merely free ones that are retrieved from sites and should only be used for development or testing purposes.</i>
 
@@ -64,65 +64,8 @@ python setup.py install
   </tr>
 </table>
 
-## Usage:
-
-### In Python Script
-
-```py
-import proxygrab
-
-socks5_list = proxygrab.get_socks5()  # Returns socks5 proxylist
-socks4_list = proxygrab.get_socks4()  # Returns socks4 proxylist
-http_list = proxygrab.get_http()  # Returns http proxylist
-https_list = proxygrab.get_https()  # Returns https proxylist
-proxy_list = proxygrab.get_proxy(type)  # Type can any one from http, https, socks4, socks5
-
-https_list = proxygrab.get_https("scrapper")  # Get proxies only from scrappers
-proxy_list = proxygrab.get_proxy(type, "scrapper")  # Same for this
-
-# Starting v2.0
-# If you don't provide a method,
-# 'all' would be used as default!
-```
-
-### Console
-
-```shell
-proxygrab --help
-```
-
- * To save proxies to file:
- ```shell
-proxygrab --type http --save
- ```
-
- * Save to custom filename:
- ```shell
-proxygrab --type http --outfile custom_filename.txt --save
- ```
-
- * Save 100 proxies to custom filename:
- ```shell
-proxygrab --type http --count 100 --outfile custom_filename.txt --save
- ```
-
- * Print only 5 proxies to terminal:
- ```shell
-proxygrab --type http --count 5
- ```
-
- * Print only 5 proxies to terminal:
- ```shell
-proxygrab --type http --count 5
- ```
-
-* Take proxies only from API: (Default = all)
-```shell
-proxygrab --type http --method api
-```
-
-If no proxy type is specified, the program will show this message:
-> "No Proxy type specified, check help by proxygrab --help"
+## Documentation:
+https://proxygrab.netlify.app
 
 ## Contribuiting
 

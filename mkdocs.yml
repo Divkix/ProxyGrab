@@ -1,0 +1,36 @@
+site_name: ProxyGrab Documentation
+repo_url: https://github.com/SkuzzyxD/ProxyGrab/
+edit_uri: tree/master/docs/
+site_author: Skuzzy xD
+use_directory_urls: true
+nav:
+    - Home: index.md
+    - Installation: installation.md
+    - Command Line: console.md
+    - Script: script.md
+    - FAQ: faq.md
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+plugins:
+  - git-revision-date
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/SkuzzyxD/ProxyGrab
+      name: ProxyGrab on Github
+    - icon: fontawesome/brands/youtube
+      link: https://youtube.com/c/SkuzzyxD
+      name: Official YouTube Channel
+    - icon: fontawesome/brands/telegram-plane
+      link: https://t.me/Skuzzers
+      name: Skuzzers Telegram Channel
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - attr_list
