@@ -13,7 +13,7 @@ with open("requirements.txt") as f:
 setuptools.setup(
     name="ProxyGrab",
     license="MIT",
-    version="0.2.0",
+    version="0.2.1",
     packages=setuptools.find_packages(),
     author="Skuzzy xD",
     author_email="techdroidroot@gmail.com",

@@ -1,15 +1,16 @@
 # Installation
 
-!!! note
-    Only Python Version 3.6+ is supported!
+!!! warning "Note:"
+    Only Python Version 3.6 and above: is supported!
 
 !!! tip
-    You can check your Python Version using :
+    You can check your Python Version using:
     ```sh
     python --version
     ```
-    If it's lower than 3.6:
-    [Download Python](https://python.org/downloads){: .md-button }
+	</br>
+    **If it's lower than 3.6:**</br></br>
+    [Download Python](https://python.org/downloads){: .md-button}
 
 ## Using Pip
 
@@ -46,4 +47,4 @@ pip install -r requirements.txt
 mkdocs build
 ```
 
-The docs would be ready in a folder called site, from there you can access them!
+The docs would be ready in a folder called `site`, from there you can access them by clicking on `index.html`.

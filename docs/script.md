@@ -18,3 +18,11 @@ proxy_custom_list = proxygrab.get_proxy(type, "scrapper")  # Same for this, wher
 ```
 
 All the variables such as `socks5_list, socks4_list, ...` are list type.
+
+## One Liner to grab proxies:
+
+You can even grab proxies in your terminal without using ProxyGrab Command Line Utility by using:</br>
+```sh
+python -c "import proxygrab; proxies = proxygrab.get_proxy('http'); print(proxies); print(len(proxies))"
+```
+This will grab the http proxies and print them to console, along with their amount using script type.

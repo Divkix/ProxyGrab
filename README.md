@@ -65,7 +65,8 @@ python setup.py install
 </table>
 
 ## Documentation:
-https://proxygrab.netlify.app
+https://proxygrab.skuzzers.xyz
+https://proxygrab.netlify.app (Alternative Link if the link above doesn't work)
 
 ## Contribuiting
 

@@ -8,6 +8,8 @@ exceptions_string = (
     "3. Maybe your IP is Temporarily Banned!"
 )
 
+def clean(mylist):
+    return list(dict.fromkeys(mylist))
 
 def get_all_proxies_fucn(ptype):
     status1, l1 = proxyscrape(ptype)
@@ -16,7 +18,7 @@ def get_all_proxies_fucn(ptype):
     if (status1 & status2) == False:
         raise Exception(exceptions_string)
     all_proxies = l1 + l2 + l3
-    return all_proxies
+    return clean(all_proxies)
 
 
 def get_api_proxies_fucn(ptype):
@@ -25,12 +27,12 @@ def get_api_proxies_fucn(ptype):
     if (status1 & status2) == False:
         raise Exception(exceptions_string)
     all_proxies = l1 + l2
-    return all_proxies
+    return clean(all_proxies)
 
 
 def get_scrapper_proxies_fucn(ptype):
     all_proxies = grab_proxies(ptype)
-    return all_proxies
+    return clean(all_proxies)
 
 
 def get_http(method="all"):

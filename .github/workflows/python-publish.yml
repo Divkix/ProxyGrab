@@ -1,8 +1,11 @@
 name: Upload Python Package
 
-on:
-  release:
-    types: [created]
+on: 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Publish Version which is shown on PyPI"     
+        required: true
 
 jobs:
   deploy:

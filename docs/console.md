@@ -5,7 +5,7 @@ To use the program via console, just type `proxygrab -h` in your command window 
 ## Help Command
 
 ```shell
-proxygrab -h
+proxygrab --help
 ```
 
 ```output
@@ -45,7 +45,8 @@ proxygrab --type http
 The program will fetch the proxies from all sources and will return them in console.
 
 !!! warning
-    If no proxy type is specified, the program will show this message:
+    If no proxy type is specified, the program will show this message:</br>
+    `No Proxy type specified, check help by proxygrab --help`
 
 ### To save proxies to file
 
@@ -84,8 +85,8 @@ Available methods are: `api`, `scrapper`, `all`
 You can specify the amount of proxies you want by passing `--count` option
 
 ```sh
-proxygrab --type <type> -- count <amount>
+proxygrab --type <type> --count <amount>
 ```
 
-!!! note
+!!! warning
     If you specify a huge amount, the scrapper will ignore it and get the maximum amount of proxies possible!
