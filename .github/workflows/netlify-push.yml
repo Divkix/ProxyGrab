@@ -36,6 +36,7 @@ jobs:
         with:
           publish-dir: './site'
           production-deploy: true
+          production-branch: master
           deploy-message: "GitHub Actions Deploy"
           github-token: ${{ secrets.GH_TOKEN }}
           enable-commit-comment: false
