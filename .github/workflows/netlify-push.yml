@@ -35,7 +35,7 @@ jobs:
         uses: nwtgck/actions-netlify@v1.1.5
         with:
           publish-dir: './site'
-          production-deploy: false
+          production-deploy: true
           deploy-message: "GitHub Actions Deploy"
           github-token: ${{ secrets.GH_TOKEN }}
           enable-commit-comment: false
