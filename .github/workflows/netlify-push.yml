@@ -1,4 +1,4 @@
-name: Share data between jobs
+name: Build and Push Docs
 
 on:
   workflow_dispatch:
