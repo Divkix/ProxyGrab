@@ -1,6 +1,8 @@
-# Home
+# ProxyGrab
 
 <p align="center">
+<a href="https://proxygrab.skuzzers.xyz"><img src="img/name.png"></a>
+<i>Software to scrap proxies for my web scrapping and other testing purposes.</i></br></br>
 <a href="https://pypi.org/project/ProxyGrab/"><img src="https://img.shields.io/pypi/v/ProxyGrab" alt="PyPI"></a>
 <a href="https://github.com/SkuzzyxD/ProxyGrab/actions"><img src="https://github.com/SkuzzyxD/ProxyGrab/workflows/CI%20%28pip%29/badge.svg" alt="CI (pip)"></a>
 <a href="https://pypi.org/project/proxygrab/"><img src="https://img.shields.io/pypi/wheel/ProxyGrab.svg" alt="PyPI - Wheel"></a>
