@@ -30,16 +30,10 @@ jobs:
       - name: Build Docs
         run: |
           mkdocs build
-      - name: Deploy to Netlify
-        id: netlify
-        uses: nwtgck/actions-netlify@v1.1.10
+      - name: Deploy production to Netlify
+        uses: South-Paw/action-netlify-deploy@v1.0.4
         with:
-          publish-dir: './site'
-          production-deploy: true
-          production-branch: master
-          deploy-message: "GitHub Actions Deploy"
-          github-token: ${{ secrets.GH_TOKEN }}
-          enable-commit-comment: false
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          build-dir: './site'
