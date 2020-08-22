@@ -1,0 +1,41 @@
+name: Share data between jobs
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Update Reason"     
+        required: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.7"
+      - name: Install Requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install ./docs/requirements.txt
+      - name: Build Docs
+        run: |
+          mkdocs build
+      - name: Deploy to Netlify
+        id: netlify
+        uses: nwtgck/actions-netlify@v1.1.5
+        with:
+          publish-dir: './site'
+          production-deploy: false
+          deploy-message: "GitHub Actions Deploy"
+          github-token: ${{ secrets.GH_TOKEN }}
+          enable-commit-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
