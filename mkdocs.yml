@@ -1,5 +1,6 @@
 site_name: ProxyGrab Documentation
 repo_url: https://github.com/SkuzzyxD/ProxyGrab/
+site_description: ProxyGrab is a small package to get proxies from multiple servers easily, by either using API or by scrapping them.
 edit_uri: tree/master/docs/
 site_author: Skuzzy xD
 use_directory_urls: true
