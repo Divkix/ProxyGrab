@@ -11,8 +11,12 @@ nav:
     - FAQ: faq.md
 theme:
   name: material
+  palette:
+    scheme: preference
+    primary: teal
+    accent: amber
   icon:
-    repo: fontawesome/brands/github
+    repo: fontawesome/brands/github-alt
 plugins:
   - git-revision-date
 extra:
