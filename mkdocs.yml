@@ -18,6 +18,8 @@ theme:
     accent: amber
   icon:
     repo: fontawesome/brands/github-alt
+  logo: img/name.png
+  favicon: img/circle-icon.png
 plugins:
   - git-revision-date
 extra:
