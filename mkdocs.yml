@@ -5,7 +5,7 @@ edit_uri: tree/master/docs/
 site_author: Skuzzy xD
 use_directory_urls: true
 nav:
-    - Home: index.md
+    - ProxyGrab: index.md
     - Installation: installation.md
     - Command Line: console.md
     - Script: script.md
