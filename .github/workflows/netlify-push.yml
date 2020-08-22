@@ -32,7 +32,7 @@ jobs:
           mkdocs build
       - name: Deploy to Netlify
         id: netlify
-        uses: nwtgck/actions-netlify@v1.1.5
+        uses: nwtgck/actions-netlify@v1.1.10
         with:
           publish-dir: './site'
           production-deploy: true
