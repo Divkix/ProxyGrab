@@ -1,4 +1,4 @@
-site_name: ProxyGrab Documentation
+site_name: ProxyGrab
 repo_url: https://github.com/SkuzzyxD/ProxyGrab/
 site_description: ProxyGrab is a small package to get proxies from multiple servers easily, by either using API or by scrapping them.
 edit_uri: tree/master/docs/
@@ -42,3 +42,8 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - attr_list
+extra_css:
+- css/termynal.css
+extra_javascript:
+- js/termynal.js
+
