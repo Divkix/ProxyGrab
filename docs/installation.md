@@ -16,12 +16,9 @@
 
 To install using pip:
 
-<div class="termy">
-```console
-$ pip install proxygrab --upgrade
----> 100%
+```sh
+pip install proxygrab --upgrade
 ```
-</div>
 
 ## Using Source Code
 
