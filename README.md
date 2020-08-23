@@ -1,13 +1,15 @@
 # ProxyGrab
 
-[![PyPI](https://img.shields.io/pypi/v/ProxyGrab)](https://pypi.org/project/ProxyGrab/)
-[![CI (pip)](https://github.com/SkuzzyxD/ProxyGrab/workflows/CI%20%28pip%29/badge.svg)](https://github.com/SkuzzyxD/ProxyGrab/actions)
-[![PyPI - License](https://img.shields.io/pypi/l/ProxyGrab)](https://github.com/SkuzzyxD/ProxyGrab/blob/master/LICENSE)
-[![PyPI - Wheel](https://img.shields.io/pypi/wheel/ProxyGrab.svg)](https://pypi.org/project/proxygrab/)
-[![PyPI - Python Versions](https://img.shields.io/pypi/pyversions/ProxyGrab.svg)](https://pypi.org/project/proxygrab/)  
-[![Documentation](https://api.netlify.com/api/v1/badges/07f64c3d-03c2-48e5-b947-0c75d38ff8ec/deploy-status)](https://ProxyGrab.netlify.com)
-[![Downloads](https://pepy.tech/badge/ProxyGrab)](https://pepy.tech/project/ProxyGrab)
-[![codestyle-black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+<p align="center">
+<a href="https://proxygrab.skuzzers.xyz"><img src="docs/img/name.png"></a>
+<i>Software to scrap proxies for my web scrapping and other testing purposes.</i></br></br>
+<a href="https://pypi.org/project/ProxyGrab/"><img src="https://img.shields.io/pypi/v/ProxyGrab" alt="PyPI"></a>
+<a href="https://github.com/SkuzzyxD/ProxyGrab/actions"><img src="https://github.com/SkuzzyxD/ProxyGrab/workflows/CI%20%28pip%29/badge.svg" alt="CI (pip)"></a>
+<a href="https://pypi.org/project/proxygrab/"><img src="https://img.shields.io/pypi/wheel/ProxyGrab.svg" alt="PyPI - Wheel"></a>
+<a href="https://pypi.org/project/proxygrab/"><img src="https://img.shields.io/pypi/pyversions/ProxyGrab.svg" alt="Supported Python Versions"></a>
+<a href="https://pepy.tech/project/ProxyGrab"><img src="https://pepy.tech/badge/ProxyGrab" alt="Downloads"></a>
+<a href="https://proxygrab.skuzzers.xyz"><img src="https://api.netlify.com/api/v1/badges/07f64c3d-03c2-48e5-b947-0c75d38ff8ec/deploy-status" alt="Documentation"></a>
+</p>
 
 I made this software to scrap proxies for my web scrapping and other testing purposes. This program just uses [requests](https://pypi.org/project/requests/) to get the response from API and return the proxies.
 
@@ -66,7 +68,6 @@ python setup.py install
 
 ## Documentation:
 https://proxygrab.skuzzers.xyz
-https://proxygrab.netlify.app (Alternative Link if the link above doesn't work)
 
 ## Contribuiting
 
@@ -82,3 +83,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Thanks to:
 * [@JaredLGillespie](https://github.com/JaredLGillespie) for his [proxyscrape library](https://github.com/JaredLGillespie/proxyscrape) from which I took scrappers!
+* Proxy Providers mentioned above
