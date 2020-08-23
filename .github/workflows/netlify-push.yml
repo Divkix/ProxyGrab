@@ -26,7 +26,8 @@ jobs:
       - name: Install Requirements
         run: |
           python -m pip install --upgrade pip
-          pip install -r ./docs/requirements.txt
+          pip install flit
+          flit install --extras doc
       - name: Build Docs
         run: |
           mkdocs build
@@ -36,4 +37,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
-          build-dir: './site'
+          build-dir: "./site"
