@@ -8,85 +8,68 @@ exceptions_string = (
     "3. Maybe your IP is Temporarily Banned!"
 )
 
+
 def clean(mylist):
+    """Clean Duplicate proxies from list"""
     return list(dict.fromkeys(mylist))
 
-def get_all_proxies_fucn(ptype):
-    status1, l1 = proxyscrape(ptype)
-    status2, l2 = proxylist(ptype)
-    l3 = grab_proxies(ptype)
-    if (status1 & status2) == False:
-        raise Exception(exceptions_string)
-    all_proxies = l1 + l2 + l3
-    return clean(all_proxies)
 
+def get_all_proxies(ptype, method):
+    """Function to get proxies"""
 
-def get_api_proxies_fucn(ptype):
-    status1, l1 = proxyscrape(ptype)
-    status2, l2 = proxylist(ptype)
-    if (status1 & status2) == False:
-        raise Exception(exceptions_string)
-    all_proxies = l1 + l2
-    return clean(all_proxies)
+    if method == "all":
+        status1, l1 = proxyscrape(ptype)
+        status2, l2 = proxylist(ptype)
+        l3 = grab_proxies(ptype)
+        if (status1 & status2) == False:
+            raise Exception(exceptions_string)
+        all_proxies = l1 + l2 + l3
 
+    elif method == "api":
+        status1, l1 = proxyscrape(ptype)
+        status2, l2 = proxylist(ptype)
+        if (status1 & status2) == False:
+            raise Exception(exceptions_string)
+        all_proxies = l1 + l2
 
-def get_scrapper_proxies_fucn(ptype):
-    all_proxies = grab_proxies(ptype)
+    elif method == "scrapper":
+        all_proxies = grab_proxies(ptype)
+
     return clean(all_proxies)
 
 
 def get_http(method="all"):
-    if method == "all":
-        return get_all_proxies_fucn("http")
-    elif method == "api":
-        return get_api_proxies_fucn("http")
-    elif method == "scrapper":
-        return get_scrapper_proxies_fucn("http")
-    else:
+    """Wrapper to get http proxies from get_all_proxies() function"""
+    if not method.lower() in ("all", "scrapper", "api"):
         raise Exception(f"No method {method} found!")
+    return get_all_proxies("http", method)
 
 
 def get_https(method="all"):
-    if method == "all":
-        return get_all_proxies_fucn("https")
-    elif method == "api":
-        return get_api_proxies_fucn("https")
-    elif method == "scrapper":
-        return get_scrapper_proxies_fucn("https")
-    else:
+    """Wrapper to get https proxies from get_all_proxies() function"""
+    if not method.lower() in ("all", "scrapper", "api"):
         raise Exception(f"No method {method} found!")
+    return get_all_proxies("https", method)
 
 
 def get_socks4(method="all"):
-    if method == "all":
-        return get_all_proxies_fucn("socks4")
-    elif method == "api":
-        return get_api_proxies_fucn("socks4")
-    elif method == "scrapper":
-        return get_scrapper_proxies_fucn("socks4")
-    else:
+    """Wrapper to get socks4 proxies from get_all_proxies() function"""
+    if not method.lower() in ("all", "scrapper", "api"):
         raise Exception(f"No method {method} found!")
+    return get_all_proxies("socks4", method)
 
 
 def get_socks5(method="all"):
-    if method == "all":
-        return get_all_proxies_fucn("socks5")
-    elif method == "api":
-        return get_api_proxies_fucn("socks5")
-    elif method == "scrapper":
-        return get_scrapper_proxies_fucn("socks5")
-    else:
+    """Wrapper to get socks5 proxies from get_all_proxies() function"""
+    if not method.lower() in ("all", "scrapper", "api"):
         raise Exception(f"No method {method} found!")
+    return get_all_proxies("socks5", method)
 
 
 def get_proxy(type, method="all"):
+    """Wrapper to get the type of proxies we define using method from get_all_proxies() function"""
     if type not in ("http", "https", "socks4", "socks5"):
         raise Exception(f"Proxy Type {type} not found")
-    if method == "all":
-        return get_all_proxies_fucn(type)
-    elif method == "api":
-        return get_api_proxies_fucn(type)
-    elif method == "scrapper":
-        return get_scrapper_proxies_fucn(type)
-    else:
+    if not method.lower() in ("all", "scrapper", "api"):
         raise Exception(f"No method {method} found!")
+    return get_all_proxies(type, method)

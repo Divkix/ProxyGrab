@@ -1,10 +1,11 @@
 import click
 from proxygrab.package import get_proxy
 
+# Constant Variables
 proxy_types = ["http", "https", "socks4", "socks5"]
 fetch_methods = ("all", "api", "scrapper")
 
-
+# List to str with ',' as seperator - for mehods
 def list_methods():
     a = ""
     for i in fetch_methods:
@@ -12,6 +13,7 @@ def list_methods():
     return a[0:-2]
 
 
+# List to str with ',' as seperator - for proxy types
 def list_ptypes():
     a = ""
     for i in proxy_types:
@@ -57,7 +59,7 @@ def clicmd(type, save, outfile, count, method):
     """
 
     if not type:
-        click.echo("No Proxy type specified, check help by proxygrab --help")
+        click.echo("Check help by proxygrab --help")
         return
     if type not in proxy_types:
         click.echo(f"Only following types are supported: {list_ptypes()}")
@@ -77,7 +79,7 @@ def clicmd(type, save, outfile, count, method):
 
     if not save:
         click.echo(proxies)
-        click.echo(f"Printed {len(proxies)} proxies to Terminal as list.")
+        click.echo(f"Printed {len(proxies)} {type} proxies to Terminal as list.")
         return
     else:
         if outfile:

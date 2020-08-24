@@ -13,7 +13,7 @@ with open("requirements.txt") as f:
 setuptools.setup(
     name="ProxyGrab",
     license="MIT",
-    version="0.2.1",
+    version="0.2.2",
     packages=setuptools.find_packages(),
     author="Skuzzy xD",
     author_email="techdroidroot@gmail.com",
@@ -28,7 +28,7 @@ setuptools.setup(
         [console_scripts]
         proxygrab=proxygrab.cmdline:clicmd""",
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.6",

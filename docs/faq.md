@@ -26,7 +26,8 @@ print(f"Number of Proxies: {len(proxy_list)}")
 The script will fetch all the proxies an then print them along with their amount.
 
 ## What if the Scrappers get my IP blocked?
-It is most likely to happen that you'll need to verify with Google ReCaptch while surfing the web, excess usage is not recommend at all.
+It is most likely to happen that you'll need to verify with Google ReCaptch while surfing the web, excess usage is not recommend at all.</br>
+Also, your IP address may be blacklisted and you'll not be able to use the script again until you change your IP.
 
 ## More providers?
 Yes, I'll be more providers when I find them! It would be great to get many proxies at a time.

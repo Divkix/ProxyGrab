@@ -20,6 +20,8 @@ If you haven’t already, check out the [README](https://github.com/SkuzzyxD/Pro
 
 For contributing, check out the [GitHub](https://github.com/SkuzzyxD/ProxyGrab/) repository :smile:
 
+Don't forget to :star: if I helped you!
+
 <p align="center">
 <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="codestyle-black"></a>
 <a href="https://github.com/SkuzzyxD/ProxyGrab/blob/master/LICENSE"><img src="https://img.shields.io/pypi/l/ProxyGrab" alt="PyPI - License"></a>

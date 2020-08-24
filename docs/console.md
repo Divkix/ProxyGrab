@@ -45,8 +45,8 @@ proxygrab --type http
 The program will fetch the proxies from all sources and will return them in console.
 
 !!! warning
-    If no proxy type is specified, the program will show this message:</br>
-    `No Proxy type specified, check help by proxygrab --help`
+    If you do not specify necessary parameters, this message would be shown:</br>
+    `Check help by proxygrab --help`
 
 ### To save proxies to file
 

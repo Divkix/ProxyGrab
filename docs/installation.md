@@ -1,7 +1,7 @@
 # Installation
 
 !!! warning "Note:"
-    Only Python Version 3.6 and above: is supported!
+    Only Python Version 3.6 and above are supported!
 
 !!! tip
     You can check your Python Version using:
@@ -40,11 +40,11 @@ python setup.py install
 Wait a few seconds and it should be installed!
 
 ## Setting up local docs
-Local docs can be setup by getting the latest source code and then using these commands:
+Local Docs can be setup by getting the latest source code and then using these commands:
 
 ```sh
-pip install -r requirements.txt
+pip install -r docs/requirements.txt
 mkdocs build
 ```
 
-The docs would be ready in a folder called `site`, from there you can access them by clicking on `index.html`.
+The docs would be ready in a folder called `site`, from there you can access them by opening `index.html` file.
