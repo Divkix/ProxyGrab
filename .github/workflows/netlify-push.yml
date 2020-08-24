@@ -3,7 +3,7 @@ name: Build and Push Docs
 on:
   push:
     branches:    
-      - netlify-push
+      - master
   workflow_dispatch:
     inputs:
       version:
