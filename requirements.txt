@@ -1,0 +1,7 @@
+requests>=2.20
+click
+bs4
+mkdocs
+black
+mkdocs-material
+mkdocs-git-revision-date-plugin

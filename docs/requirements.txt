@@ -1,0 +1,4 @@
+mkdocs
+black
+mkdocs-material
+mkdocs-git-revision-date-plugin
