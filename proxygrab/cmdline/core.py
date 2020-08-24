@@ -57,7 +57,7 @@ def list_ptypes():
 @click.option(
     "--token",
     "-k",
-    help="ProxyScrape Premium Token\nYou can use --save using it too!",
+    help="ProxyScrape Premium Token, you can use --save using it too!",
     metavar="<token>",
     default=None,
     show_default=True,
