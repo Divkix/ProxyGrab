@@ -10,6 +10,8 @@ from proxygrab.package import (
     save_socks4,
     save_socks5,
     save_proxy,
+    get_all_proxies,
+    save_all_proxies,
 )
 
 # ProxyScrapePremium for users who have proxyscrape token!

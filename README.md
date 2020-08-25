@@ -13,7 +13,8 @@
 
 I made this software to scrap proxies for my web scrapping and other testing purposes. This program just uses [requests](https://pypi.org/project/requests/) to get the response from API and return the proxies, also it can scrape proxies from a few sites so that it can be used without using the API.
 
-<i>NOTE: This library isn't designed for production use. It's advised to use your own proxies or purchase a service which provides an API. These are merely free ones that are retrieved from sites and should only be used for development or testing purposes.</i>
+<i><b>NOTE:</b> This library isn't designed for production use. It's advised to use your own proxies or purchase a service which provides an API. These are merely free ones that are retrieved from sites and should only be used for development or testing purposes.</br>
+<b>Update:</b> Now you can use ProxyScrape Premium Token to get proxies for production use! It's only for people who will be using this for people who will use free proxies for intensive tasks!</i>
 
 ## Installation
 

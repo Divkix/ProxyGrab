@@ -41,7 +41,7 @@ class ProxyScrapePremium:
             raise Exception(err_text)
         return True
 
-    def get_proxies(self, proxytype: str, *args, **kwargs):
+    def get_proxies(self, proxytype: str,**kwargs):
         """Get proxies from proxyscrape.net using the key"""
 
         ProxyScrapePremium.check_key(self)  # Check Key provided by user
@@ -77,7 +77,7 @@ class ProxyScrapePremium:
         elif format == "normal":
             out = returntext
         elif format == "json":
-            out = json.dumps(returntext)
+            out = returntext
 
         return out
 

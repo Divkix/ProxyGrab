@@ -1,3 +1,5 @@
+"""Main script which compiles all the functions from more different scripts"""
+
 import json
 from .api import proxyscrape, proxylist
 from .scrapper import grab_proxies
@@ -16,28 +18,31 @@ proxy_types = ("http", "https", "socks4", "socks5")
 
 
 def clean(mylist):
-    """Clean Duplicate proxies from list"""
+    """Clean Duplicate proxies from list by first converting list to dictionary and then
+    extracting keys from it, as keys have unique value, there won't be any duplicates"""
     return list(dict.fromkeys(mylist))
 
 
 def get_proxies_func(ptype, method):
     """Function to get proxies"""
 
-    method = method.lower()
-    ptype = ptype.lower()
+    method = method.lower()  # Convert method name to lowercase
+    ptype = ptype.lower()  # Convert proxy name to lowercase
 
     if method == "all":  # All Method
-        status1, l1 = proxyscrape(ptype)
-        status2, l2 = proxylist(ptype)
-        l3 = grab_proxies(ptype)
-        if (status1 & status2) == False:
+        status1, l1 = proxyscrape(ptype)  # Get proxies from Proxyscrape free API
+        status2, l2 = proxylist(ptype)  # Get proxies from Proxylist free API
+        l3 = grab_proxies(ptype)  # Get proxies from scrapper
+        if not (status1 & status2):
+            # If API's give error, raise Exception
             raise Exception(exceptions_string)
         all_proxies = l1 + l2 + l3
 
     elif method == "api":  # API Method
-        status1, l1 = proxyscrape(ptype)
-        status2, l2 = proxylist(ptype)
-        if (status1 & status2) == False:
+        status1, l1 = proxyscrape(ptype)  # Get proxies from Proxyscrape free API
+        status2, l2 = proxylist(ptype)  # Get proxies from Proxylist free API
+        if not (status1 & status2):
+            # If API's give error, raise Exception
             raise Exception(exceptions_string)
         all_proxies = l1 + l2
 
@@ -45,6 +50,7 @@ def get_proxies_func(ptype, method):
         all_proxies = grab_proxies(ptype)
 
     else:
+        # Raise Exception if method is not in ('api', 'scrappper', 'all')
         raise Exception(f"No method {method} found!")
 
     # Clean proxies so that duplicates are removed from list!

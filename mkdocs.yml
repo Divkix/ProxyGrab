@@ -9,6 +9,7 @@ nav:
     - Installation: installation.md
     - Command Line: console.md
     - Script: script.md
+    - ProxyScrape Premium: proxyscrape_premium.md
     - FAQ: faq.md
 theme:
   name: material

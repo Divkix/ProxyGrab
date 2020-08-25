@@ -2,27 +2,72 @@
 
 You can also import the package into your script by using `import proxygrab`
 
+## Sample code
+
 ```py
-import proxygrab
+import proxygrab  # Just import the module
 
-socks5_list = proxygrab.get_socks5()  # Returns socks5 proxylist
-socks4_list = proxygrab.get_socks4()  # Returns socks4 proxylist
-http_list = proxygrab.get_http()  # Returns http proxylist
-https_list = proxygrab.get_https()  # Returns https proxylist
-
-proxy_list = proxygrab.get_proxy(type)  # Type - Can any one from http, https, socks4, socks5
-https_custom_list = proxygrab.get_https("scrapper")  # Get proxies only from scrappers
-
-# get_proxy() takes 2 parameters instead of 1
-proxy_custom_list = proxygrab.get_proxy(type, "scrapper")  # Same for this, where type = api, scrapper or all
+list = proxygrab.get_http()  # Call get_http() function to get http proxis in form of a list
 ```
+## Getting Proxies in Script
 
-All the variables such as `socks5_list, socks4_list, ...` are list type.
+This is for getting proxies as a list or dictinary in a python script.
 
-## One Liner to grab proxies:
+### Available
+You can get proxies by the following functions:
 
-You can even grab proxies in your terminal without using ProxyGrab Command Line Utility by using:</br>
-```sh
-python -c "import proxygrab; proxies = proxygrab.get_proxy('http'); print(proxies); print(len(proxies))"
+* `get_http` - Get http proxies
+* `get_https` - Get https proxies
+* `get_socks4` - Get socks4 proxies
+* `get_socks5` - Get socks5 proxies
+* `get_proxy(proxytype)` - Specify proxytype from - `http`, `https`, `socks4`, `socks5`
+
+The above functions will use `all` as default method to grab proxies, to use a custom method, scroll down!!
+
+### Methods available
+* `all` - Get proxies from both `API` as well as `Scrapper`
+* `scrapper` - Get proxies from only `Scrapper`
+* `api` - Get proxies from only `api`
+
+If you **do not** specify a method, `all` would be used as default!
+
+## Get All Proxies
+All proxies can be fetched from the function `get_all_proxies()`, it will save proxies in format of a dictionary like:
+```json
+{
+    'HTTP': [Proxy List Here],
+    'HTTPS': [Proxy List Here],
+    'SOCKS4': [Proxy List Here],
+    'SOCKS5': [Proxy List Here],
+}
 ```
-This will grab the http proxies and print them to console, along with their amount using script type.
+You can get proxies from the specific keys!
+
+## Saving Proxies
+
+!!! danger "Note"
+    All the proxies would be saved in Current Working Directory where you are executing the script from!
+
+These functions are used to save proxies to a file!
+
+### Fucntions to save proxies:
+* `save_http()` - Save HTTP Proxies to file `http_proxygrab.txt`
+* `save_https()` - Save HTTPS Proxies to file `https_proxygrab.txt`
+* `save_socks4()` - Save SOCKS4 Proxies to file `socks4_proxygrab.txt`
+* `save_socks5()` - Save SOCKS5 Proxies to file `socks5_proxygrab.txt`
+* `save_proxy(proxytype)` - Specify proxytype from - `http`, `https`, `socks4`, `socks5`
+
+### Methods
+Same as getting the proxies!
+
+### Save all proxies
+All proxies can be fetched from the function `save_all_proxies()`, it will be saved in form of a dictionary like:
+```json
+{
+    'HTTP': [Proxy List Here],
+    'HTTPS': [Proxy List Here],
+    'SOCKS4': [Proxy List Here],
+    'SOCKS5': [Proxy List Here],
+}
+```
+The filename would be - `all_proxies_proxygrab.txt`

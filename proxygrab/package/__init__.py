@@ -9,5 +9,7 @@ from .main import (
     save_socks4,
     save_socks5,
     save_proxy,
+    get_all_proxies,
+    save_all_proxies,
 )
 
