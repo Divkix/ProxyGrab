@@ -51,7 +51,7 @@ def list_ptypes():
     type=int,
     default=0,
     help="Number of Proxies; 0 means all",
-    metavar="<int>",
+    metavar="<num>",
     show_default=True,
 )
 @click.option(

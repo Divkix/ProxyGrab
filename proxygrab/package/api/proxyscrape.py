@@ -41,7 +41,7 @@ class ProxyScrapePremium:
             raise Exception(err_text)
         return True
 
-    def get_proxies(self, proxytype: str,**kwargs):
+    def get_proxies(self, proxytype: str, **kwargs):
         """Get proxies from proxyscrape.net using the key"""
 
         ProxyScrapePremium.check_key(self)  # Check Key provided by user
@@ -64,8 +64,10 @@ class ProxyScrapePremium:
         averagetimeout: kwargs.get("averagetimeout", None)
         port: kwargs.get("port", None)
 
+        """Add values to URL"""
         for key, value in kwargs.items():
             if value is not None:
+                # If value is not None, add it to URL with key as parameter, else leave
                 full_url += f"&{key}={value}"
 
         response = requests.get(full_url)
@@ -73,11 +75,11 @@ class ProxyScrapePremium:
 
         if format is None:
             out = returntext.split("\r\n")
-            out.pop()
+            out.pop()  # Remove last empty entry '' in list
         elif format == "normal":
-            out = returntext
+            out = returntext  # Text with \r\n in it
         elif format == "json":
-            out = returntext
+            out = returntext  # JSON Format, only available in premium
 
         return out
 
