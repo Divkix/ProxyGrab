@@ -88,7 +88,6 @@ def save_https(filename="https_proxygrab.txt", method="all"):
         f.close()
     return filename
 
-
 # For SOCKS4
 def get_socks4(method="all"):
     """Get socks4 proxies from get_proxies_func() function"""
@@ -103,7 +102,6 @@ def save_socks4(filename="socks4_proxygrab.txt", method="all"):
             f.write(f"{proxy} + '\n'")
         f.close()
     return filename
-
 
 # For SOCKS5
 def get_socks5(method="all"):
