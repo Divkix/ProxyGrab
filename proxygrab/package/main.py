@@ -86,8 +86,7 @@ def save_https(filename="https_proxygrab.txt", method="all"):
         for proxy in proxies:
             f.write(f"{proxy} + '\n'")
         f.close()
-    return
-
+    return filename
 
 # For SOCKS4
 def get_socks4(method="all"):
@@ -102,8 +101,7 @@ def save_socks4(filename="socks4_proxygrab.txt", method="all"):
         for proxy in proxies:
             f.write(f"{proxy} + '\n'")
         f.close()
-    return
-
+    return filename
 
 # For SOCKS5
 def get_socks5(method="all"):
@@ -118,7 +116,7 @@ def save_socks5(filename="socks5_proxygrab.txt", method="all"):
         for proxy in proxies:
             f.write(f"{proxy} + '\n'")
         f.close()
-    return
+    return filename
 
 
 # For general - user defines proxy type
@@ -134,11 +132,12 @@ def save_proxy(type, method="all"):
     if type not in proxy_types:
         raise Exception(f"Proxy Type {type} not found")
     proxies = get_proxies_func(type, method)
-    with open(f"{type}_proxygrab.txt", "w") as f:
+    filename = f"{type}_proxygrab.txt"
+    with open(filename, "w") as f:
         for proxy in proxies:
             f.write(f"{proxy} + '\n'")
         f.close()
-    return
+    return filename
 
 
 # For all proxy_types
@@ -157,4 +156,4 @@ def save_all_proxies(filename="all_proxies_proxygrab.txt", method="all"):
     with open(filename, "w") as f:
         f.write(str(pdict))
         f.close()
-    return
+    return filename

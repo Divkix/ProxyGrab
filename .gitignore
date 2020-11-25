@@ -137,5 +137,8 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# Files saved by program
+# Files saved by progam
 *_proxygrab.txt
+=======
+*_proxygrab.txt
+.vscode/
