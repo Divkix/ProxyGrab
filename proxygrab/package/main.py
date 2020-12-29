@@ -1,6 +1,5 @@
 """Main script which compiles all the functions from more different scripts"""
 
-import json
 from .api import proxyscrape, proxylist
 from .scrapper import grab_proxies
 
@@ -68,7 +67,7 @@ def save_http(filename="http_proxygrab.txt", method="all"):
     proxies = get_proxies_func("http", method)
     with open(filename, "w") as f:
         for proxy in proxies:
-            f.write(f"{proxy} + '\n'")
+            f.write(f"{proxy}\n")
         f.close()
     return
 
@@ -84,9 +83,10 @@ def save_https(filename="https_proxygrab.txt", method="all"):
     proxies = get_proxies_func("https", method)
     with open(filename, "w") as f:
         for proxy in proxies:
-            f.write(f"{proxy} + '\n'")
+            f.write(f"{proxy}\n")
         f.close()
     return filename
+
 
 # For SOCKS4
 def get_socks4(method="all"):
@@ -99,9 +99,10 @@ def save_socks4(filename="socks4_proxygrab.txt", method="all"):
     proxies = get_proxies_func("socks4", method)
     with open(filename, "w") as f:
         for proxy in proxies:
-            f.write(f"{proxy} + '\n'")
+            f.write(f"{proxy}\n")
         f.close()
     return filename
+
 
 # For SOCKS5
 def get_socks5(method="all"):
@@ -114,7 +115,7 @@ def save_socks5(filename="socks5_proxygrab.txt", method="all"):
     proxies = get_proxies_func("socks5", method)
     with open(filename, "w") as f:
         for proxy in proxies:
-            f.write(f"{proxy} + '\n'")
+            f.write(f"{proxy}\n")
         f.close()
     return filename
 
@@ -135,7 +136,7 @@ def save_proxy(type, method="all"):
     filename = f"{type}_proxygrab.txt"
     with open(filename, "w") as f:
         for proxy in proxies:
-            f.write(f"{proxy} + '\n'")
+            f.write(f"{proxy}\n")
         f.close()
     return filename
 

@@ -12,4 +12,3 @@ from .main import (
     get_all_proxies,
     save_all_proxies,
 )
-

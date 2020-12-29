@@ -7,19 +7,15 @@ proxy_types = ["http", "https", "socks4", "socks5"]
 fetch_methods = ("all", "api", "scrapper")
 
 # List to str with ', ' as seperator - for mehods
-def list_methods():
-    a = ""
-    for i in fetch_methods:
-        a += f"{i}, "
-    return a[0:-2]
+def list_methods(fetch_methods=fetch_methods):
+    a = ", ".join(fetch_methods)
+    return a
 
 
 # List to str with ', ' as seperator - for proxy types
-def list_ptypes():
-    a = ""
-    for i in proxy_types:
-        a += f"{i}, "
-    return a[0:-2]
+def list_ptypes(proxy_types=proxy_types):
+    a = ", ".join(proxy_types)
+    return
 
 
 @click.command(

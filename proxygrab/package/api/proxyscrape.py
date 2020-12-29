@@ -41,7 +41,7 @@ class ProxyScrapePremium:
             raise Exception(err_text)
         return True
 
-    def get_proxies(self, proxytype: str,**kwargs):
+    def get_proxies(self, proxytype: str, **kwargs):
         """Get proxies from proxyscrape.net using the key"""
 
         ProxyScrapePremium.check_key(self)  # Check Key provided by user
