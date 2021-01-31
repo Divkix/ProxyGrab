@@ -1,6 +1,7 @@
 """Main script which compiles all the functions from more different scripts."""
 
-from .api import proxyscrape, proxylist
+from .api.proxylist import proxylist
+from .api.proxyscrape import proxyscrape
 from .scrapper import grab_proxies
 
 # Constants Start

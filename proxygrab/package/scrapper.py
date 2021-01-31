@@ -1,8 +1,8 @@
+"""Various Scrapper used to scrap proxies from different websites.
+You can find a list of scrappers in the readme file"""
+
 import requests
 from bs4 import BeautifulSoup
-
-# Various Scrapper used to scrap proxies from different websites.
-# You can find a list of scrappers in the readme file
 
 
 def grab_proxies(ptype):

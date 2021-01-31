@@ -1,5 +1,5 @@
 # Free Methods to get proxies!
-from proxygrab.package import (
+from proxygrab.package.main import (
     get_socks4,
     get_https,
     get_http,
