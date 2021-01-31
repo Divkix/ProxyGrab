@@ -19,16 +19,19 @@ I made this software to scrap proxies for my web scrapping and other testing pur
 ## Installation
 
 The latest version of proxygrab is available via `pip`:
+
 ```shell
 pip install --upgrade proxygrab
 ```
 
 Also, you can even download the source code and install using:
+
 ```shell
 python setup.py install
 ```
 
-## Provided Proxies:
+## Provided Proxies
+
 <table style="width:100%">
   <tr>
     <th>Provider</th>
@@ -67,7 +70,8 @@ python setup.py install
   </tr>
 </table>
 
-## Documentation:
+## Documentation
+
 https://proxygrab.netlify.com
 
 ## Contribuiting
@@ -75,13 +79,15 @@ https://proxygrab.netlify.com
 Wanna help and improve this project?
 
 Make sure to follow these before opening a PR:
-* Make sure your PR is formatted with Black.
-* Make sure the package is working.
+
+- Make sure your PR is formatted with Black.
+- Make sure the package is working.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Thanks to:
-* [@JaredLGillespie](https://github.com/JaredLGillespie) for his [proxyscrape library](https://github.com/JaredLGillespie/proxyscrape) from which I took scrappers!
-* Proxy Providers mentioned above
+## Thanks to
+
+- [@JaredLGillespie](https://github.com/JaredLGillespie) for his [proxyscrape library](https://github.com/JaredLGillespie/proxyscrape) from which I took scrappers!
+- Proxy Providers mentioned above
