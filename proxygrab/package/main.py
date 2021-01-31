@@ -1,9 +1,9 @@
-"""Main script which compiles all the functions from more different scripts"""
+"""Main script which compiles all the functions from more different scripts."""
 
 from .api import proxyscrape, proxylist
 from .scrapper import grab_proxies
 
-""" Constants Start """
+# Constants Start
 exceptions_string = (
     "Error, some causes may be:\n"
     "1. Maybe check you internet connection?\n"
@@ -13,18 +13,17 @@ exceptions_string = (
 
 method_types = ("all", "scrapper", "api")
 proxy_types = ("http", "https", "socks4", "socks5")
-""" Constants End """
+# Constants End
 
 
 def clean(mylist):
     """Clean Duplicate proxies from list by first converting list to dictionary and then
-    extracting keys from it, as keys have unique value, there won't be any duplicates"""
+    extracting keys from it, as keys have unique value, there won't be any duplicates."""
     return list(dict.fromkeys(mylist))
 
 
 def get_proxies_func(ptype, method):
-    """Function to get proxies"""
-
+    """Function to get proxies."""
     method = method.lower()  # Convert method name to lowercase
     ptype = ptype.lower()  # Convert proxy name to lowercase
 
@@ -58,12 +57,12 @@ def get_proxies_func(ptype, method):
 
 # For HTTP
 def get_http(method="all"):
-    """Get http proxies from get_proxies_func() function"""
+    """Get http proxies from get_proxies_func() function."""
     return get_proxies_func("http", method)
 
 
 def save_http(filename="http_proxygrab.txt", method="all"):
-    """Save http proxies from get_proxies_func() function"""
+    """Save http proxies from get_proxies_func() function."""
     proxies = get_proxies_func("http", method)
     with open(filename, "w") as f:
         for proxy in proxies:
@@ -74,12 +73,12 @@ def save_http(filename="http_proxygrab.txt", method="all"):
 
 # For HTTPS
 def get_https(method="all"):
-    """Get https proxies from get_proxies_func() function"""
+    """Get https proxies from get_proxies_func() function."""
     return get_proxies_func("https", method)
 
 
 def save_https(filename="https_proxygrab.txt", method="all"):
-    """Save https proxies from get_proxies_func() function"""
+    """Save https proxies from get_proxies_func() function."""
     proxies = get_proxies_func("https", method)
     with open(filename, "w") as f:
         for proxy in proxies:
@@ -90,12 +89,12 @@ def save_https(filename="https_proxygrab.txt", method="all"):
 
 # For SOCKS4
 def get_socks4(method="all"):
-    """Get socks4 proxies from get_proxies_func() function"""
+    """Get socks4 proxies from get_proxies_func() function."""
     return get_proxies_func("socks4", method)
 
 
 def save_socks4(filename="socks4_proxygrab.txt", method="all"):
-    """Save socks4 proxies from get_proxies_func() function"""
+    """Save socks4 proxies from get_proxies_func() function."""
     proxies = get_proxies_func("socks4", method)
     with open(filename, "w") as f:
         for proxy in proxies:
@@ -106,12 +105,12 @@ def save_socks4(filename="socks4_proxygrab.txt", method="all"):
 
 # For SOCKS5
 def get_socks5(method="all"):
-    """Get socks5 proxies from get_proxies_func() function"""
+    """Get socks5 proxies from get_proxies_func() function."""
     return get_proxies_func("socks5", method)
 
 
 def save_socks5(filename="socks5_proxygrab.txt", method="all"):
-    """Save socks5 proxies from get_proxies_func() function"""
+    """Save socks5 proxies from get_proxies_func() function."""
     proxies = get_proxies_func("socks5", method)
     with open(filename, "w") as f:
         for proxy in proxies:
@@ -121,19 +120,19 @@ def save_socks5(filename="socks5_proxygrab.txt", method="all"):
 
 
 # For general - user defines proxy type
-def get_proxy(type, method="all"):
-    """Get the type of proxies we define using method from get_proxies_func() function"""
+def get_proxy(ptype, method="all"):
+    """Get the type of proxies we define using method from get_proxies_func() function."""
     if type not in proxy_types:
-        raise Exception(f"Proxy Type {type} not found")
-    return get_proxies_func(type, method)
+        raise Exception(f"Proxy Type {ptype} not found")
+    return get_proxies_func(ptype, method)
 
 
-def save_proxy(type, method="all"):
-    """Save the type of proxies we define using method from get_proxies_func() function"""
+def save_proxy(ptype, method="all"):
+    """Save the type of proxies we define using method from get_proxies_func() function."""
     if type not in proxy_types:
-        raise Exception(f"Proxy Type {type} not found")
-    proxies = get_proxies_func(type, method)
-    filename = f"{type}_proxygrab.txt"
+        raise Exception(f"Proxy Type {ptype} not found")
+    proxies = get_proxies_func(ptype, method)
+    filename = f"{ptype}_proxygrab.txt"
     with open(filename, "w") as f:
         for proxy in proxies:
             f.write(f"{proxy}\n")
@@ -150,6 +149,7 @@ def get_all_proxies(method="all"):
     return pdict
 
 
+# save all proxies
 def save_all_proxies(filename="all_proxies_proxygrab.txt", method="all"):
     pdict = {}
     for i in proxy_types:

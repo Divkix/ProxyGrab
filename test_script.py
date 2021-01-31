@@ -1,4 +1,3 @@
-import os
 import proxygrab
 
 try:
@@ -119,16 +118,5 @@ except Exception as ef:
 try:
     p8 = proxygrab.save_proxy("socks5")
     print("Saved socks5 SaveM proxies")
-except Exception as ef:
-    print("Error:", ef)
-
-
-try:
-    os.remove("http_proxygrab.txt")
-    os.remove("https_proxygrab.txt")
-    os.remove("socks4_proxygrab.txt")
-    os.remove("socks5_proxygrab.txt")
-    os.remove("all_proxies_proxygrab.txt")
-    print("Removed all proxy files")
 except Exception as ef:
     print("Error:", ef)

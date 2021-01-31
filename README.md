@@ -1,11 +1,11 @@
 # ProxyGrab
 
 <p align="center">
-<a href="https://proxygrab.netlify.com"><img src="https://raw.githubusercontent.com/SkuzzyxD/ProxyGrab/master/docs/img/name.png"></a>
+<a href="https://proxygrab.netlify.com"><img src="https://raw.githubusercontent.com/Divkix/ProxyGrab/master/docs/img/name.png"></a>
 <i>Software to scrap proxies for my web scrapping and other testing purposes.</i></br></br>
 <a href="https://pypi.org/project/ProxyGrab/"><img src="https://img.shields.io/pypi/v/ProxyGrab" alt="PyPI"></a>
-<a href="https://github.com/SkuzzyxD/ProxyGrab/actions"><img src="https://github.com/SkuzzyxD/ProxyGrab/workflows/CI%20%28pip%29/badge.svg" alt="CI (pip)"></a>
-<a href="https://pypi.org/project/proxygrab/"><img src="https://img.shields.io/pypi/wheel/ProxyGrab.svg" alt="PyPI - Wheel"></a>
+<a href="https://github.com/Divkix/ProxyGrab/actions"><img src="https://github.com/Divkix/ProxyGrab/workflows/CI%20%28pip%29/badge.svg" alt="CI (pip)"></a>
+<a href="https://www.codacy.com/gh/Divkix/ProxyGrab/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Divkix/ProxyGrab&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/b5b68ed7f04c4f639bef56df0668d289"/></a>
 <a href="https://pypi.org/project/proxygrab/"><img src="https://img.shields.io/pypi/pyversions/ProxyGrab.svg" alt="Supported Python Versions"></a>
 <a href="https://pepy.tech/project/ProxyGrab"><img src="https://pepy.tech/badge/ProxyGrab" alt="Downloads"></a>
 <a href="https://proxygrab.netlify.com"><img src="https://api.netlify.com/api/v1/badges/07f64c3d-03c2-48e5-b947-0c75d38ff8ec/deploy-status" alt="Documentation"></a>
@@ -20,7 +20,7 @@ I made this software to scrap proxies for my web scrapping and other testing pur
 
 The latest version of proxygrab is available via `pip`:
 ```shell
-pip install proxygrab --upgrade
+pip install --upgrade proxygrab
 ```
 
 Also, you can even download the source code and install using:

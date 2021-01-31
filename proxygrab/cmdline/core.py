@@ -3,18 +3,18 @@ from proxygrab import get_proxy
 from proxygrab import ProxyScrapePremium
 
 # Constant Variables
-proxy_types = ["http", "https", "socks4", "socks5"]
-fetch_methods = ("all", "api", "scrapper")
+proxyTypes = ["http", "https", "socks4", "socks5"]
+fetchMethods = ("all", "api", "scrapper")
 
 # List to str with ', ' as seperator - for mehods
-def list_methods(fetch_methods=fetch_methods):
-    a = ", ".join(fetch_methods)
+def list_methods(fetchMethods=fetchMethods):
+    a = ", ".join(fetchMethods)
     return a
 
 
 # List to str with ', ' as seperator - for proxy types
-def list_ptypes(proxy_types=proxy_types):
-    a = ", ".join(proxy_types)
+def list_ptypes(proxyTypes=proxyTypes):
+    a = ", ".join(proxyTypes)
     return
 
 
@@ -67,7 +67,7 @@ def clicmd(save, type: str, outfile: str, count: int, method: str, token: str):
     if not type:
         click.echo("Check help by proxygrab --help")
         return
-    if type not in proxy_types:
+    if type not in proxyTypes:
         click.echo(f"Only following types are supported: {list_ptypes()}")
         return
 
@@ -87,7 +87,7 @@ def clicmd(save, type: str, outfile: str, count: int, method: str, token: str):
         return proxies
 
     # Return if the method provided by user is not available
-    if method not in fetch_methods:
+    if method not in fetchMethods:
         click.echo(f"Only following methods are supported: {list_methods()}")
         return
 

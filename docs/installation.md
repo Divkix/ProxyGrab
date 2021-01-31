@@ -24,12 +24,12 @@ pip install proxygrab --upgrade
 
 ### Download the latest source code from Github
 
-[Click here](https://github.com/SkuzzyxD/ProxyGrab/archive/master.zip) to download the latest source code from Github
+[Click here](https://github.com/Divkix/ProxyGrab/archive/master.zip) to download the latest source code from Github
 
 ### Using Git
 
 ```sh
-git clone https://github.com/SkuzzyxD/ProxyGrab.git
+git clone https://github.com/Divkix/ProxyGrab.git
 ```
 
 After you have downloaded the source code, `cd` (by doing `cd proxygrab`) into the the directory and type this command:</br>

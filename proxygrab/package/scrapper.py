@@ -36,7 +36,7 @@ def get_ssl_proxies():
             proxies.append(f"{host}:{port}")
 
         return proxies
-    except:
+    except Exception:
         pass
 
 
@@ -63,7 +63,7 @@ def get_anonymous_proxiesptype(ptype):
                 proxies.append(f"{host}:{port}")
 
         return proxies
-    except:
+    except Exception:
         pass
 
 
@@ -89,7 +89,7 @@ def get_free_proxy_list_proxies(ptype):
                 proxies.append(f"{host}:{port}")
 
         return proxies
-    except:
+    except Exception:
         pass
 
 
@@ -115,7 +115,7 @@ def get_uk_proxies(ptype):
                 proxies.append(f"{host}:{port}")
 
         return proxies
-    except:
+    except Exception:
         pass
 
 
@@ -141,7 +141,7 @@ def get_us_proxies(ptype):
                 proxies.append(f"{host}:{port}")
 
         return proxies
-    except:
+    except Exception:
         pass
 
 
@@ -168,5 +168,5 @@ def get_socks_proxies(ptype):
                 proxies.append(f"{host}:{port}")
 
         return proxies
-    except:
+    except Exception:
         pass
