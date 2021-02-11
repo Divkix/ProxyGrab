@@ -69,7 +69,7 @@ def save_http(filename="http_proxygrab.txt", method="all"):
         for proxy in proxies:
             f.write(f"{proxy}\n")
         f.close()
-    return
+    return filename
 
 
 # For HTTPS
