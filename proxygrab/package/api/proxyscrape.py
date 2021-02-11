@@ -48,17 +48,6 @@ class ProxyScrapePremium:
 
         full_url += f"&proxytype={proxytype}"
 
-        timeout = kwargs.get("timeout", None)
-        ssl = kwargs.get("ssl", None)
-        anonymity = kwargs.get("anonymity", None)
-        country = kwargs.get("country", None)
-        limit = kwargs.get("limit", None)
-        format = kwargs.get("format", None)
-        age = kwargs.get("age", None)
-        status = kwargs.get("status", None)
-        averagetimeout: kwargs.get("averagetimeout", None)
-        port: kwargs.get("port", None)
-
         # Add values to URL
         for key, value in kwargs.items():
             if value is not None:
