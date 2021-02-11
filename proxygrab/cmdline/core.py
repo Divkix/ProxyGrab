@@ -3,19 +3,17 @@ from proxygrab import get_proxy
 from proxygrab import ProxyScrapePremium
 
 # Constant Variables
-proxyTypes = ["http", "https", "socks4", "socks5"]
+proxyTypes = ("http", "https", "socks4", "socks5")
 fetchMethods = ("all", "api", "scrapper")
 
 # List to str with ', ' as seperator - for mehods
 def list_methods(fetchMethods=fetchMethods):
-    a = ", ".join(fetchMethods)
-    return a
+    return ", ".join(fetchMethods)
 
 
 # List to str with ', ' as seperator - for proxy types
 def list_ptypes(proxyTypes=proxyTypes):
-    a = ", ".join(proxyTypes)
-    return
+    return ", ".join(proxyTypes)
 
 
 @click.command(
