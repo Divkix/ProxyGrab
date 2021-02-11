@@ -33,7 +33,7 @@ class ProxyScrapePremium:
         """
         key_url = f"{self.BASE_URL}?request=keystatus&serialkey={self.key}"
         keystatus = requests.get(key_url)
-        if not "alive" in keystatus.text.lower():
+        if "alive" not in keystatus.text.lower():
             err_text = keystatus.text
             raise Exception(err_text)
         return True
