@@ -1,7 +1,7 @@
 # Installation
 
 !!! warning "Note:"
-    Only Python Version 3.6 and above are supported!
+    Only Python Version 3.7 and above are supported!
 
 !!! tip
     You can check your Python Version using:
@@ -9,7 +9,7 @@
     python --version
     ```
 	</br>
-    **If it's lower than 3.6:**</br></br>
+    **If it's lower than 3.7:**</br></br>
     [Download Python](https://python.org/downloads){: .md-button}
 
 ## Using Pip
@@ -43,7 +43,7 @@ Wait a few seconds and it should be installed!
 Local Docs can be setup by getting the latest source code and then using these commands:
 
 ```sh
-pip install -r docs/requirements.txt
+pip install -r requirements-dev.txt
 mkdocs build
 ```
 

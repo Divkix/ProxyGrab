@@ -59,16 +59,8 @@ async def coro(f):
     metavar="<num>",
     show_default=True,
 )
-@option(
-    "--token",
-    "-k",
-    help="ProxyScrape Premium Token, you can use --save using it too!",
-    metavar="<token>",
-    default=None,
-    show_default=True,
-)
 @coro
-async def clicmd(save, type: str, outfile: str, count: int, method: str, token: str):
+async def clicmd(save, type: str, outfile: str, count: int, method: str):
     """
     This a Command Line Utility from ProxyGrab which can be used to get proxies straight in your terminal or to save them to a file.
     """
