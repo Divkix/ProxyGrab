@@ -1,6 +1,4 @@
 # Free Methods to get proxies!
-# ProxyScrapePremium for users who have proxyscrape token!
-from proxygrab.package.api.proxyscrape import ProxyScrapePremium
 from proxygrab.package.main import (
     get_all_proxies,
     get_http,
@@ -15,3 +13,18 @@ from proxygrab.package.main import (
     save_socks4,
     save_socks5,
 )
+
+
+async def __useless_func():
+    get_all_proxies()
+    get_http()
+    get_https()
+    get_proxy()
+    get_socks4()
+    get_socks5()
+    save_all_proxies()
+    save_http()
+    save_https()
+    save_proxy()
+    save_socks4()
+    save_socks5()

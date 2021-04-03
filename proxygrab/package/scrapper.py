@@ -1,28 +1,29 @@
 """Various Scrapper used to scrap proxies from different websites.
 You can find a list of scrappers in the readme file"""
 
-import requests
 from bs4 import BeautifulSoup
 
+from proxygrab.__utils import AioHttp
 
-def grab_proxies(ptype):
+
+async def grab_proxies(ptype):
     lst = []
     if ptype in ("http", "https"):
         if ptype == "https":
-            lst += get_ssl_proxies()
-        lst += get_anonymous_proxiesptype(ptype)
-        lst += get_free_proxy_list_proxies(ptype)
-        lst += get_us_proxies(ptype)
-        lst += get_uk_proxies(ptype)
+            lst += await get_ssl_proxies()
+        lst += await get_anonymous_proxiesptype(ptype)
+        lst += await get_free_proxy_list_proxies(ptype)
+        lst += await get_us_proxies(ptype)
+        lst += await get_uk_proxies(ptype)
     else:
-        lst += get_socks_proxies(ptype)
+        lst += await get_socks_proxies(ptype)
     return lst
 
 
 # Only HTTPS Proxies
-def get_ssl_proxies():
+async def get_ssl_proxies():
     url = "https://www.sslproxies.org/"
-    response = requests.get(url)
+    response, _ = await AioHttp.get_text(url)
 
     try:
         soup = BeautifulSoup(response.content, "html.parser")
@@ -37,13 +38,13 @@ def get_ssl_proxies():
 
         return proxies
     except Exception:
-        pass
+        return []
 
 
 # HTTP and HTTPS Proxies Scrapper
-def get_anonymous_proxiesptype(ptype):
+async def get_anonymous_proxiesptype(ptype):
     url = "https://free-proxy-list.net/anonymous-proxy.html"
-    response = requests.get(url)
+    response, _ = await AioHttp.get_text(url)
 
     try:
         soup = BeautifulSoup(response.content, "html.parser")
@@ -64,12 +65,12 @@ def get_anonymous_proxiesptype(ptype):
 
         return proxies
     except Exception:
-        pass
+        return []
 
 
-def get_free_proxy_list_proxies(ptype):
+async def get_free_proxy_list_proxies(ptype):
     url = "http://www.free-proxy-list.net"
-    response = requests.get(url)
+    response, _ = await AioHttp.get_text(url)
 
     try:
         soup = BeautifulSoup(response.content, "html.parser")
@@ -90,12 +91,12 @@ def get_free_proxy_list_proxies(ptype):
 
         return proxies
     except Exception:
-        pass
+        return []
 
 
-def get_uk_proxies(ptype):
+async def get_uk_proxies(ptype):
     url = "https://free-proxy-list.net/uk-proxy.html"
-    response = requests.get(url)
+    response, _ = await AioHttp.get_text(url)
 
     try:
         soup = BeautifulSoup(response.content, "html.parser")
@@ -116,12 +117,12 @@ def get_uk_proxies(ptype):
 
         return proxies
     except Exception:
-        pass
+        return []
 
 
-def get_us_proxies(ptype):
+async def get_us_proxies(ptype):
     url = "https://www.us-proxy.org"
-    response = requests.get(url)
+    response, _ = await AioHttp.get_text(url)
 
     try:
         soup = BeautifulSoup(response.content, "html.parser")
@@ -142,13 +143,13 @@ def get_us_proxies(ptype):
 
         return proxies
     except Exception:
-        pass
+        return []
 
 
 # Socks Proxy Scrapper
-def get_socks_proxies(ptype):
+async def get_socks_proxies(ptype):
     url = "https://www.socks-proxy.net"
-    response = requests.get(url)
+    response, _ = await AioHttp.get_text(url)
 
     try:
         soup = BeautifulSoup(response.content, "html.parser")
@@ -169,4 +170,4 @@ def get_socks_proxies(ptype):
 
         return proxies
     except Exception:
-        pass
+        return []
