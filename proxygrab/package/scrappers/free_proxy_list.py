@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from proxygrab.__utils import AioHttp
 
 
-async def get_free_proxy_list_proxies(ptype):
+async def get_free_proxy_list_proxies(ptype: str):
     url = "http://www.free-proxy-list.net"
     response, _ = await AioHttp.get_text(url)
 
@@ -30,7 +30,7 @@ async def get_free_proxy_list_proxies(ptype):
 
 
 # HTTP and HTTPS Proxies Scrapper
-async def get_anonymous_proxiesptype(ptype):
+async def get_anonymous_proxiesptype(ptype: str):
     url = "https://free-proxy-list.net/anonymous-proxy.html"
     response, _ = await AioHttp.get_text(url)
 
@@ -56,7 +56,7 @@ async def get_anonymous_proxiesptype(ptype):
         return []
 
 
-async def get_uk_proxies(ptype):
+async def get_uk_proxies(ptype: str):
     url = "https://free-proxy-list.net/uk-proxy.html"
     response, _ = await AioHttp.get_text(url)
 

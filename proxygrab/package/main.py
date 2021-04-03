@@ -1,5 +1,7 @@
 """Main script which compiles all the functions from more different scripts."""
 
+from json import dump
+
 from proxygrab.package.api.proxylist import proxylist
 from proxygrab.package.api.proxyscrape import proxyscrape
 from proxygrab.package.scrappers import grab_proxies
@@ -50,106 +52,99 @@ async def get_proxies_func(ptype: str, method: str):
 
     else:
         # Raise Exception if method is not in ('api', 'scrappper', 'all')
-        raise Exception(f"No method {method} found!")
+        raise Exception(f"No method '{method}' found!")
 
     # Clean proxies so that duplicates are removed from list!
     return await clean(all_proxies)
 
 
 # For HTTP
-async def get_http(method="all"):
+async def get_http(method: str = "all"):
     """Get http proxies from get_proxies_func() function."""
     return await get_proxies_func("http", method)
 
 
-async def save_http(filename="http_proxygrab.txt", method="all"):
+async def save_http(filename: str = "http_proxygrab.txt", method: str = "all"):
     """Save http proxies from get_proxies_func() function."""
     proxies = await get_proxies_func("http", method)
     with open(filename, "w+") as f:
-        for proxy in proxies:
-            f.write(f"{proxy}\n")
+        f.write("\n".join(proxies))
     return filename
 
 
 # For HTTPS
-async def get_https(method="all"):
+async def get_https(method: str = "all"):
     """Get https proxies from get_proxies_func() function."""
     return await get_proxies_func("https", method)
 
 
-async def save_https(filename="https_proxygrab.txt", method="all"):
+async def save_https(filename: str = "https_proxygrab.txt", method: str = "all"):
     """Save https proxies from get_proxies_func() function."""
     proxies = await get_proxies_func("https", method)
     with open(filename, "w+") as f:
-        for proxy in proxies:
-            f.write(f"{proxy}\n")
+        f.write("\n".join(proxies))
     return filename
 
 
 # For SOCKS4
-async def get_socks4(method="all"):
+async def get_socks4(method: str = "all"):
     """Get socks4 proxies from get_proxies_func() function."""
     return await get_proxies_func("socks4", method)
 
 
-async def save_socks4(filename="socks4_proxygrab.txt", method="all"):
+async def save_socks4(filename: str = "socks4_proxygrab.txt", method: str = "all"):
     """Save socks4 proxies from get_proxies_func() function."""
     proxies = await get_proxies_func("socks4", method)
     with open(filename, "w+") as f:
-        for proxy in proxies:
-            f.write(f"{proxy}\n")
+        f.write("\n".join(proxies))
     return filename
 
 
 # For SOCKS5
-async def get_socks5(method="all"):
+async def get_socks5(method: str = "all"):
     """Get socks5 proxies from get_proxies_func() function."""
     return await get_proxies_func("socks5", method)
 
 
-async def save_socks5(filename="socks5_proxygrab.txt", method="all"):
+async def save_socks5(filename: str = "socks5_proxygrab.txt", method: str = "all"):
     """Save socks5 proxies from get_proxies_func() function."""
     proxies = await get_proxies_func("socks5", method)
     with open(filename, "w+") as f:
-        for proxy in proxies:
-            f.write(f"{proxy}\n")
+        f.write("\n".join(proxies))
     return filename
 
 
 # For general - user defines proxy type
-async def get_proxy(ptype, method="all"):
+async def get_proxy(ptype, method: str = "all"):
     """Get the type of proxies we define using method from get_proxies_func() function."""
     if ptype not in proxy_types:
         raise Exception(f"Proxy Type {ptype} not found")
     return await get_proxies_func(ptype, method)
 
 
-async def save_proxy(ptype, method="all"):
+async def save_proxy(ptype, method: str = "all"):
     """Save the type of proxies we define using method from get_proxies_func() function."""
     if ptype not in proxy_types:
         raise Exception(f"Proxy Type {ptype} not found")
     proxies = await get_proxies_func(ptype, method)
     filename = f"{ptype}_proxygrab.txt"
     with open(filename, "w+") as f:
-        for proxy in proxies:
-            f.write(f"{proxy}\n")
+        f.write("\n".join(proxies))
     return filename
 
 
 # For all proxy_types
 # These 2 fucntions saves the proxies in dictionary in file
-async def get_all_proxies(method="all"):
-    pdict = {}
-    for i in proxy_types:
-        pdict[i.upper()] = await get_proxy(i, method)
+async def get_all_proxies(method: str = "all"):
+    pdict = {i.upper(): await get_proxy(i, method) for i in proxy_types}
     return pdict
 
 
 # save all proxies
-async def save_all_proxies(filename="all_proxies_proxygrab.txt", method="all"):
-    pdict = {}
-    for i in proxy_types:
-        pdict[i.upper()] = await get_proxy(i, method)
-    with open(filename, "w+") as f:
-        f.write(str(pdict))
+async def save_all_proxies(
+    filename: str = "all_proxies_proxygrab.txt",
+    method: str = "all",
+):
+    pdict = {i.upper(): await get_proxy(i, method) for i in proxy_types}
+    dump(pdict, filename)
     return filename

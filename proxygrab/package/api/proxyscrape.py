@@ -1,7 +1,7 @@
 from proxygrab.__utils import AioHttp
 
 
-async def proxyscrape(ptype):
+async def proxyscrape(ptype: str):
     """Get Proxies from Proxyscrape website."""
     url = f"https://api.proxyscrape.com/?request=displayproxies&proxytype={ptype}"
     text, rr = await AioHttp.get_text(url)

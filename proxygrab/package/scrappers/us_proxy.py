@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from proxygrab.__utils import AioHttp
 
 
-async def get_us_proxies(ptype):
+async def get_us_proxies(ptype: str):
     url = "https://www.us-proxy.org"
     response, _ = await AioHttp.get_text(url)
 

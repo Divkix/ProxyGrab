@@ -11,7 +11,7 @@ from proxygrab.package.scrappers.sslproxies import get_ssl_proxies
 from proxygrab.package.scrappers.us_proxy import get_us_proxies
 
 
-async def grab_proxies(ptype):
+async def grab_proxies(ptype: str):
     lst = []
     if ptype in ("http", "https"):
         if ptype == "https":

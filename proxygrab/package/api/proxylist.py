@@ -1,7 +1,7 @@
 from proxygrab.__utils import AioHttp
 
 
-async def proxylist(ptype):
+async def proxylist(ptype: str):
     """Get Proxies from proxy-list.download"""
     url = f"https://www.proxy-list.download/api/v1/get?type={ptype}"
     text, rr = await AioHttp.get_text(url)

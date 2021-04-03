@@ -4,7 +4,7 @@ from proxygrab.__utils import AioHttp
 
 
 # Socks Proxy Scrapper
-async def get_socks_proxies(ptype):
+async def get_socks_proxies(ptype: str):
     url = "https://www.socks-proxy.net"
     response, _ = await AioHttp.get_text(url)
 
