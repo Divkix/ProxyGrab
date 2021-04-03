@@ -6,17 +6,18 @@ from click import command, echo, option
 from proxygrab import get_proxy
 
 # Constant Variables
-proxyTypes = ("http", "https", "socks4", "socks5")
-fetchMethods = ("all", "api", "scrapper")
+proxy_types = ("http", "https", "socks4", "socks5")
+fetch_methods = ("all", "api", "scrapper")
 
 # List to str with ', ' as seperator - for mehods
-list_methods = lambda: ", ".join(fetchMethods)
+list_methods = lambda: ", ".join(fetch_methods)
 
 # List to str with ', ' as seperator - for proxy types
-list_ptypes = lambda: ", ".join(proxyTypes)
+list_ptypes = lambda: ", ".join(proxy_types)
 
 
-async def coro(f):
+# For making it run in async
+def coro(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
         return run(f(*args, **kwargs))
@@ -32,6 +33,7 @@ async def coro(f):
     "--method",
     "-m",
     default="all",
+    type=str,
     help=f"Method to get proxies form, available: {list_methods()}",
     metavar="<method>",
     show_default=True,
@@ -46,6 +48,7 @@ async def coro(f):
 @option(
     "--outfile",
     "-o",
+    type=str,
     help="Will save with specified filename.",
     metavar="<filename>",
 )
@@ -69,7 +72,7 @@ async def clicmd(save, type: str, outfile: str, count: int, method: str):
     if not type:
         echo("Check help by proxygrab --help")
         return
-    if type not in proxyTypes:
+    if type not in proxy_types:
         echo(f"Only following types are supported: {list_ptypes()}")
         return
 
@@ -77,7 +80,7 @@ async def clicmd(save, type: str, outfile: str, count: int, method: str):
     echo("Fetching proxies...")
 
     # Return if the method provided by user is not available
-    if method not in fetchMethods:
+    if method not in fetch_methods:
         echo(f"Only following methods are supported: {list_methods()}")
         return
 
@@ -85,7 +88,7 @@ async def clicmd(save, type: str, outfile: str, count: int, method: str):
     # Default method is 'all'
     proxies = await get_proxy(type, method)
 
-    # If user has defined the proxies count, scrap them on;y
+    # If user has defined the proxies count, scrap them only
     if count != 0:
         if count <= len(proxies):
             proxies = proxies[0:count]

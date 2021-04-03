@@ -1,8 +1,8 @@
 """Main script which compiles all the functions from more different scripts."""
 
-from .api.proxylist import proxylist
-from .api.proxyscrape import proxyscrape
-from .scrapper import grab_proxies
+from proxygrab.package.api.proxylist import proxylist
+from proxygrab.package.api.proxyscrape import proxyscrape
+from proxygrab.package.scrappers import grab_proxies
 
 # Constants Start
 exceptions_string = (

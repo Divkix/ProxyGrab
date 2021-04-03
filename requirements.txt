@@ -3,3 +3,4 @@ aiohttp==3.7.4.post0
 beautifulsoup4==4.9.3
 cchardet==2.1.7
 click==7.1.2
+lxml==4.6.3
