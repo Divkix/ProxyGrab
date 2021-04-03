@@ -1,18 +1,17 @@
 # Free Methods to get proxies!
-from proxygrab.package.main import (
-    get_socks4,
-    get_https,
-    get_http,
-    get_socks5,
-    get_proxy,
-    save_http,
-    save_https,
-    save_socks4,
-    save_socks5,
-    save_proxy,
-    get_all_proxies,
-    save_all_proxies,
-)
-
 # ProxyScrapePremium for users who have proxyscrape token!
 from proxygrab.package.api.proxyscrape import ProxyScrapePremium
+from proxygrab.package.main import (
+    get_all_proxies,
+    get_http,
+    get_https,
+    get_proxy,
+    get_socks4,
+    get_socks5,
+    save_all_proxies,
+    save_http,
+    save_https,
+    save_proxy,
+    save_socks4,
+    save_socks5,
+)

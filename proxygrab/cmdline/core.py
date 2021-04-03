@@ -1,6 +1,6 @@
 import click
-from proxygrab import get_proxy
-from proxygrab import ProxyScrapePremium
+
+from proxygrab import ProxyScrapePremium, get_proxy
 
 # Constant Variables
 proxyTypes = ("http", "https", "socks4", "socks5")
@@ -36,7 +36,10 @@ def list_ptypes(proxyTypes=proxyTypes):
     metavar="<proxy type>",
 )
 @click.option(
-    "--outfile", "-o", help="Will save with specified filename.", metavar="<filename>"
+    "--outfile",
+    "-o",
+    help="Will save with specified filename.",
+    metavar="<filename>",
 )
 @click.option("--save", "-s", is_flag=True, help="Will save proxies to file.")
 @click.option(

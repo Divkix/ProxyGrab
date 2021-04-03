@@ -1,10 +1,10 @@
 name: Upload Python Package
 
-on: 
+on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Publish Version which is shown on PyPI"     
+        description: "Publish Version which is shown on PyPI"
         required: true
 
 jobs:

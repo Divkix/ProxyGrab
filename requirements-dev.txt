@@ -1,0 +1,9 @@
+-r requirements.txt
+black
+isort
+mkdocs
+mkdocs-git-revision-date-plugin
+mkdocs-material
+pre-commit
+pyclean
+pylint

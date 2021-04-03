@@ -11,7 +11,7 @@
 <a href="https://proxygrab.skuzzers.xyz"><img src="https://api.netlify.com/api/v1/badges/07f64c3d-03c2-48e5-b947-0c75d38ff8ec/deploy-status" alt="Documentation"></a>
 </p>
 
-Software to scrap proxies for my web scrapping and other testing purposes. This program just uses [requests](https://pypi.org/project/requests) to get the response from API and return the proxies.
+Software to scrap proxies for my web scrapping and other testing purposes. This program just uses [aiohttp](https://pypi.org/project/aiohttp) to get the response from API and return the proxies.
 
 ???+ note
     This library isn't designed for production use. It's advised to use your own proxies or purchase a service which provides an API. These are merely free ones that are retrieved from sites and should only be used for development or testing purposes.

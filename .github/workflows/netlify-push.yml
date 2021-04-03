@@ -2,12 +2,12 @@ name: Build and Push Docs
 
 on:
   push:
-    branches:    
+    branches:
       - master
   workflow_dispatch:
     inputs:
       version:
-        description: "Update Reason"     
+        description: "Update Reason"
         required: false
 
 jobs:
