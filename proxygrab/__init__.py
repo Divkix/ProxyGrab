@@ -1,4 +1,3 @@
-
 __version__ = "0.3.0"
 __copyright__ = "Copyright (C) 2020-2021 Divkix <https://github.com/Divkix>"
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import re
+
 import setuptools
 
 with open("proxygrab/__init__.py", encoding="utf-8") as f:
@@ -20,7 +21,6 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     author="Divkix",
     author_email="techdroidroot@gmail.com",
-    license="MIT",
     description="A simple package made using Python and aiohttp to get proxies from multiple sites!",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -28,7 +28,7 @@ setuptools.setup(
     url="http://github.com/Divkix/ProxyGrab/",
     install_requires=requirements,
     python_requires=">=3.6",
-    entry_points={'console_scripts':{'proxygrab=proxygrab.cmdline:clicmd'}},
+    entry_points={"console_scripts": {"proxygrab=proxygrab.cmdline:clicmd"}},
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
