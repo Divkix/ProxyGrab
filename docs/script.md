@@ -5,9 +5,10 @@ You can also import the package into your script by using `import proxygrab`
 ## Sample code
 
 ```py
+import asyncio
 import proxygrab  # Just import the module
 
-list = proxygrab.get_http()  # Call get_http() function to get http proxis in form of a list
+list = asyncio.run(proxygrab.get_http())  # Call get_http() function to get http proxis in form of a list
 ```
 ## Getting Proxies in Script
 

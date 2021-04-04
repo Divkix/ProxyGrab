@@ -10,6 +10,7 @@ You can append the list on your own by making a python script, or you can wait a
 
 Till the you can use this method:
 ```py
+import asyncio
 import proxygrab
 
 proxy_list = []
@@ -17,7 +18,7 @@ proxy_list = []
 proxy_types = ('http', 'https', 'socks4', 'socks5')
 
 for ptype in proxy_types:
-    proxy_list.append(proxygrab.get_proxy(ptype))
+    proxy_list.append(asyncio.run(proxygrab.get_proxy(ptype)))
 
 print(proxy_list)
 print(f"Number of Proxies: {len(proxy_list)}")
