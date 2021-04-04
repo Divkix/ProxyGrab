@@ -5,6 +5,8 @@ import proxygrab
 
 
 class Test:
+    """Testing some minor api commands"""
+
     @staticmethod
     async def run_all():
         print("Starting test...")
@@ -137,8 +139,8 @@ class Test:
             print("Error:", ef)
 
         end = time()
+        print(f"Total Tests done: {success}")
         print(f"Time Taken for running the test: {round(end-start,3)}s")
-        return success
 
 
 run(Test.run_all())

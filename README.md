@@ -14,7 +14,7 @@
 I made this software to scrap proxies for my web scrapping and other testing purposes. This program just uses [aiohttp](https://pypi.org/project/aiohttp/) to get the response from API and return the proxies, also it can scrape proxies from a few sites so that it can be used without using the API.
 
 <i><b>NOTE:</b> This library isn't designed for production use. It's advised to use your own proxies or purchase a service which provides an API. These are merely free ones that are retrieved from sites and should only be used for development or testing purposes.</br>
-<b>Update:</b> Now you can use ProxyScrape Premium Token to get proxies for production use! It's only for people who will be using this for people who will use free proxies for intensive tasks!</i>
+
 
 ## Installation
 
@@ -24,7 +24,7 @@ The latest version of proxygrab is available via `pip`:
 pip install --upgrade proxygrab
 ```
 
-Also, you can even download the source code and install using:
+Also, you can download the source code and install using:
 
 ```shell
 python setup.py install
@@ -80,8 +80,8 @@ Wanna help and improve this project?
 
 Make sure to follow these before opening a PR:
 
-- Make sure your PR is formatted with Black.
-- Make sure the package is working.
+- Make sure your PR passes the test and is formatted according to pre-commit.
+- Make sure the package is working without any issues!
 
 ## License
 

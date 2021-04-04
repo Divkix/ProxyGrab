@@ -1,6 +1,6 @@
 site_name: ProxyGrab
 repo_url: https://github.com/Divkix/ProxyGrab/
-site_description: ProxyGrab is a small package to get proxies from multiple servers easily, by either using API or by scrapping them.
+site_description: ProxyGrab is a small package to get proxies from multiple servers easily, by either using API or by scrapping them from various websites!
 edit_uri: tree/master/docs/
 site_author: Divkix
 use_directory_urls: true
@@ -9,7 +9,6 @@ nav:
     - Installation: installation.md
     - Command Line: console.md
     - Script: script.md
-    - ProxyScrape Premium: proxyscrape_premium.md
     - FAQ: faq.md
 theme:
   name: material
