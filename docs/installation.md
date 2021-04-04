@@ -17,6 +17,7 @@
 To install using pip:
 
 ```sh
+pip install pip setuptools wheel --upgrade
 pip install proxygrab --upgrade
 ```
 
@@ -32,7 +33,7 @@ pip install proxygrab --upgrade
 git clone https://github.com/Divkix/ProxyGrab.git
 ```
 
-After you have downloaded the source code, `cd` (by doing `cd proxygrab`) into the the directory and type this command:</br>
+After you have downloaded the source code, `cd` (by doing `cd ProxyGrab`) into the the directory and type this command:</br>
 ```sh
 python setup.py install
 ```
@@ -43,8 +44,7 @@ Wait a few seconds and it should be installed!
 Local Docs can be setup by getting the latest source code and then using these commands:
 
 ```sh
-pip install -r requirements-dev.txt
-mkdocs build
+make docs
 ```
 
 The docs would be ready in a folder called `site`, from there you can access them by opening `index.html` file.

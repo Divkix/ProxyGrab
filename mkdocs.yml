@@ -1,6 +1,6 @@
 site_name: ProxyGrab
 repo_url: https://github.com/Divkix/ProxyGrab/
-site_description: ProxyGrab is a small package to get proxies from multiple servers easily, by either using API or by scrapping them from various websites!
+site_description: ProxyGrab is a small package to get proxies from multiple services easily, by either using API or by scrapping them from various websites!
 edit_uri: tree/master/docs/
 site_author: Divkix
 use_directory_urls: true
@@ -33,5 +33,5 @@ markdown_extensions:
   - pymdownx.superfences
   - attr_list
   - pymdownx.emoji:
-      emoji_index: "!!python/name:materialx.emoji.twemoji"
-      emoji_generator: "!!python/name:materialx.emoji.to_svg"
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg

@@ -4,6 +4,9 @@ You can also import the package into your script by using `import proxygrab`
 
 ## Sample code
 
+!!! danger "Note"
+    As this is an Asynchronous Library, you will need to run it using **async/await** or **asyncio**!
+
 ```py
 import asyncio
 import proxygrab  # Just import the module

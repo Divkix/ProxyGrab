@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-import re
+from re import findall
 
-import setuptools
+from setuptools import find_packages, setup
 
 with open("proxygrab/__init__.py", encoding="utf-8") as f:
-    version = re.findall(r"__version__ = \"(.+)\"", f.read())[0]
+    version = findall(r"__version__ = \"(.+)\"", f.read())[0]
 
 with open("README.md") as fh:
     long_description = fh.read()
@@ -14,14 +14,14 @@ with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
 
-setuptools.setup(
+setup(
     name="ProxyGrab",
     license="MIT",
     version=version,
-    packages=setuptools.find_packages(),
+    packages=find_packages(),
     author="Divkix",
     author_email="techdroidroot@gmail.com",
-    description="A simple package made using Python and aiohttp to get proxies from multiple sites!",
+    description="Asynchronous Library made using Python and aiohttp to get proxies from multiple services!",
     long_description=long_description,
     long_description_content_type="text/markdown",
     keywords="proxyscrape proxies proxygrab proxygrab-python proxylist",
