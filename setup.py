@@ -45,8 +45,8 @@ setup(
     ],
     project_urls={
         "Tracker": "https://github.com/Divkix/ProxyGrab/issues",
-        "Community": "https://t.me/Pyrogram",
+        "Community": "https://t.me/DivideProjects",
         "Source": "https://github.com/Divkix/ProxyGrab",
-        "Documentation": "https://proxygrab.github.io",
+        "Documentation": "https://proxygrab.netlify.app",
     },
 )
