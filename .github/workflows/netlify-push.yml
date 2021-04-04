@@ -2,12 +2,12 @@ name: Build and Push Docs
 
 on:
   push:
-    branches:    
+    branches:
       - master
   workflow_dispatch:
     inputs:
       version:
-        description: "Update Reason"     
+        description: "Update Reason"
         required: false
 
 jobs:
@@ -22,14 +22,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: "3.7"
-      - name: Install Requirements
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r ./docs/requirements.txt
+          python-version: "3.9"
       - name: Build Docs
         run: |
-          mkdocs build
+          make docs
       - name: Deploy production to Netlify
         uses: South-Paw/action-netlify-deploy@v1.0.4
         with:

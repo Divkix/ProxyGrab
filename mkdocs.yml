@@ -1,15 +1,14 @@
 site_name: ProxyGrab
-repo_url: https://github.com/SkuzzyxD/ProxyGrab/
-site_description: ProxyGrab is a small package to get proxies from multiple servers easily, by either using API or by scrapping them.
+repo_url: https://github.com/Divkix/ProxyGrab/
+site_description: ProxyGrab is a small package to get proxies from multiple services easily, by either using API or by scrapping them from various websites!
 edit_uri: tree/master/docs/
-site_author: Skuzzy xD
+site_author: Divkix
 use_directory_urls: true
 nav:
     - Home: index.md
     - Installation: installation.md
     - Command Line: console.md
     - Script: script.md
-    - ProxyScrape Premium: proxyscrape_premium.md
     - FAQ: faq.md
 theme:
   name: material
@@ -26,19 +25,13 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/SkuzzyxD/ProxyGrab
+      link: https://github.com/Divkix/ProxyGrab
       name: ProxyGrab on Github
-    - icon: fontawesome/brands/youtube
-      link: https://youtube.com/c/SkuzzyxD
-      name: Official YouTube Channel
-    - icon: fontawesome/brands/telegram-plane
-      link: https://t.me/Skuzzers
-      name: Skuzzers Telegram Channel
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - attr_list
