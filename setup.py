@@ -27,7 +27,7 @@ setup(
     keywords="proxyscrape proxies proxygrab proxygrab-python proxylist",
     url="http://github.com/Divkix/ProxyGrab/",
     install_requires=requirements,
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     entry_points={"console_scripts": {"proxygrab=proxygrab.cmdline:clicmd"}},
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -35,7 +35,6 @@ setup(
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",

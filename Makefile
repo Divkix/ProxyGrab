@@ -22,8 +22,3 @@ ci:
 	@pip3 install --upgrade pip setuptools wheel
 	@pip3 install --upgrade -r requirements-dev.txt
 	@pre-commit
-
-docs:
-	@pip3 install --upgrade pip setuptools wheel
-	@pip3 install --upgrade -r requirements-dev.txt
-	@mkdocs build

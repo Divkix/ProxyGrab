@@ -19,13 +19,21 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: "3.9"
+
+      - name: Setup
+        run: |
+          pip3 install --upgrade pip setuptools wheel
+          pip3 install --upgrade -r requirements-dev.txt
+
       - name: Build Docs
         run: |
-          make docs
+          mkdocs build
+
       - name: Deploy production to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.0
         with:
