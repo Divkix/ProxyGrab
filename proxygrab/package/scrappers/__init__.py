@@ -1,14 +1,14 @@
 """Various Scrapper used to scrap proxies from different websites.
 You can find a list of scrappers in the readme file"""
 
-from proxygrab.package.scrappers.free_proxy_list import (
+from ...package.scrappers.free_proxy_list import (
     get_anonymous_proxiesptype,
     get_free_proxy_list_proxies,
     get_uk_proxies,
 )
-from proxygrab.package.scrappers.socks_proxy import get_socks_proxies
-from proxygrab.package.scrappers.sslproxies import get_ssl_proxies
-from proxygrab.package.scrappers.us_proxy import get_us_proxies
+from ...package.scrappers.socks_proxy import get_socks_proxies
+from ...package.scrappers.sslproxies import get_ssl_proxies
+from ...package.scrappers.us_proxy import get_us_proxies
 
 
 async def grab_proxies(ptype: str):

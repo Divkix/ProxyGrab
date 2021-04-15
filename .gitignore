@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Ignore lock file as it's a package
+poetry.lock
+
 # Distribution / packaging
 .Python
 build/

@@ -1,5 +1,1 @@
-from proxygrab.cmdline.core import clicmd
-
-
-def __useless_func():
-    clicmd()
+from ..cmdline.core import clicmd

@@ -2,18 +2,12 @@
 
 from json import dump
 
-from proxygrab.package.api.proxylist import proxylist
-from proxygrab.package.api.proxyscrape import proxyscrape
-from proxygrab.package.scrappers import grab_proxies
+from .api.proxylist import proxylist
+from .api.proxyscrape import proxyscrape
+from .errors import MethodNotFound, ProxyTypeNotFound, UnknownError
+from .scrappers import grab_proxies
 
 # Constants Start
-exceptions_string = (
-    "Error, some causes may be:\n"
-    "1. Maybe check you internet connection?\n"
-    "2. No Proxies found!\n"
-    "3. Maybe your IP is Temporarily Banned!"
-)
-
 method_types = ("all", "scrapper", "api")
 proxy_types = ("http", "https", "socks4", "socks5")
 # Constants End
@@ -36,7 +30,7 @@ async def get_proxies_func(ptype: str, method: str):
         l3 = await grab_proxies(ptype)  # Get proxies from scrapper
         if not (status1 & status2):
             # If API's give error, raise Exception
-            raise Exception(exceptions_string)
+            raise UnknownError()
         all_proxies = l1 + l2 + l3
 
     elif method == "api":  # API Method
@@ -44,7 +38,7 @@ async def get_proxies_func(ptype: str, method: str):
         status2, l2 = await proxylist(ptype)  # Get proxies from Proxylist free API
         if not (status1 & status2):
             # If API's give error, raise Exception
-            raise Exception(exceptions_string)
+            raise UnknownError()
         all_proxies = l1 + l2
 
     elif method == "scrapper":  # Scrapper Method
@@ -52,7 +46,7 @@ async def get_proxies_func(ptype: str, method: str):
 
     else:
         # Raise Exception if method is not in ('api', 'scrappper', 'all')
-        raise Exception(f"No method '{method}' found!")
+        raise MethodNotFound(method)
 
     # Clean proxies so that duplicates are removed from list!
     return await clean(all_proxies)
@@ -118,14 +112,14 @@ async def save_socks5(filename: str = "socks5_proxygrab.txt", method: str = "all
 async def get_proxy(ptype, method: str = "all"):
     """Get the type of proxies we define using method from get_proxies_func() function."""
     if ptype not in proxy_types:
-        raise Exception(f"Proxy Type {ptype} not found")
+        raise ProxyTypeNotFound(ptype)
     return await get_proxies_func(ptype, method)
 
 
 async def save_proxy(ptype, method: str = "all"):
     """Save the type of proxies we define using method from get_proxies_func() function."""
     if ptype not in proxy_types:
-        raise Exception(f"Proxy Type {ptype} not found")
+        raise ProxyTypeNotFound(ptype)
     proxies = await get_proxies_func(ptype, method)
     filename = f"{ptype}_proxygrab.txt"
     with open(filename, "w+") as f:
