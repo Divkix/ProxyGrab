@@ -1,14 +1,15 @@
 """Various Scrapper used to scrap proxies from different websites.
 You can find a list of scrappers in the readme file"""
 
-from ...package.scrappers.free_proxy_list import (
+from .free_proxy_list import (
     get_anonymous_proxiesptype,
     get_free_proxy_list_proxies,
     get_uk_proxies,
 )
-from ...package.scrappers.socks_proxy import get_socks_proxies
-from ...package.scrappers.sslproxies import get_ssl_proxies
-from ...package.scrappers.us_proxy import get_us_proxies
+from .github import get_github_proxies
+from .socks_proxy import get_socks_proxies
+from .sslproxies import get_ssl_proxies
+from .us_proxy import get_us_proxies
 
 
 async def grab_proxies(ptype: str):
@@ -22,4 +23,8 @@ async def grab_proxies(ptype: str):
         lst += await get_uk_proxies(ptype)
     else:
         lst += await get_socks_proxies(ptype)
+
+    # Github Scrapper
+    lst += await get_github_proxies(ptype)
+
     return lst

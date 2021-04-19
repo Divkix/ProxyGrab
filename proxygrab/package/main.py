@@ -2,8 +2,7 @@
 
 from json import dump
 
-from .api.proxylist import proxylist
-from .api.proxyscrape import proxyscrape
+from .api import get_api_proxies
 from .errors import MethodNotFound, ProxyTypeNotFound, UnknownError
 from .scrappers import grab_proxies
 
@@ -25,20 +24,13 @@ async def get_proxies_func(ptype: str, method: str):
     ptype = ptype.lower()  # Convert proxy name to lowercase
 
     if method == "all":  # All Method
-        status1, l1 = await proxyscrape(ptype)  # Get proxies from Proxyscrape free API
-        status2, l2 = await proxylist(ptype)  # Get proxies from Proxylist free API
-        l3 = await grab_proxies(ptype)  # Get proxies from scrapper
-        if not (status1 & status2):
-            # If API's give error, raise Exception
-            raise UnknownError()
-        all_proxies = l1 + l2 + l3
+        l1 = await get_api_proxies(ptype)  # Get proxies from Proxyscrape free API
+        l2 = await grab_proxies(ptype)  # Get proxies from scrapper
+        all_proxies = l1 + l2
 
     elif method == "api":  # API Method
-        status1, l1 = await proxyscrape(ptype)  # Get proxies from Proxyscrape free API
-        status2, l2 = await proxylist(ptype)  # Get proxies from Proxylist free API
-        if not (status1 & status2):
-            # If API's give error, raise Exception
-            raise UnknownError()
+        l1 = await get_api_proxies(ptype)  # Get proxies from Proxyscrape free API
+        l2 = await grab_proxies(ptype)  # Get proxies from scrapper
         all_proxies = l1 + l2
 
     elif method == "scrapper":  # Scrapper Method
