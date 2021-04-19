@@ -14,9 +14,7 @@ async def get_github_proxies(p_type: str):
 async def fate0_proxy(p_type: str):
     url = "https://raw.githubusercontent.com/fate0/proxylist/master/proxy.list"
     res, _ = await AioHttp.get_text(url)
-    print(res)
-    # error here
-    tmp_lst = [loads(pxy) for pxy in res.split("\n")]
+    tmp_lst = [loads(pxy) for pxy in res.split("\n")[:-2]]
     try:
         p_list = [
             f"{proxy['host']}:{proxy['port']}"
