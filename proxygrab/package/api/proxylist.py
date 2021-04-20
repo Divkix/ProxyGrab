@@ -1,4 +1,4 @@
-from ..._utils import AioHttp
+from .._utils import AioHttp
 
 
 async def proxylist(ptype: str):

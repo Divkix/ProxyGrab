@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-from ..._utils import AioHttp
+from .._utils import AioHttp
 
 
 async def get_us_proxies(ptype: str):

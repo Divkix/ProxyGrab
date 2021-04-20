@@ -1,6 +1,6 @@
 from json import loads
 
-from ..._utils import AioHttp
+from .._utils import AioHttp
 
 
 async def get_github_proxies(p_type: str):
