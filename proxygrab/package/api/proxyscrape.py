@@ -1,4 +1,4 @@
-from proxygrab.__utils import AioHttp
+from .._utils import AioHttp
 
 
 async def proxyscrape(ptype: str):

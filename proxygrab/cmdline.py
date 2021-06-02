@@ -1,5 +1,6 @@
 from asyncio import run
 from functools import wraps
+from re import findall
 
 from click import command, echo, option
 
@@ -15,6 +16,12 @@ list_methods = lambda: ", ".join(fetch_methods)
 # List to str with ', ' as seperator - for proxy types
 list_ptypes = lambda: ", ".join(proxy_types)
 
+
+with open("proxygrab/__init__.py", encoding="utf-8") as f:
+    version_pip = findall(r"__version__ = \"(.+)\"", f.read())[0]
+
+with open("proxygrab/__init__.py", encoding="utf-8") as f:
+    copyright_pip = findall(r"__copyright__ = \"(.+)\"", f.read())[0]
 
 # For making it run in async
 def coro(f):
@@ -53,6 +60,7 @@ def coro(f):
     metavar="<filename>",
 )
 @option("--save", "-s", is_flag=True, help="Will save proxies to file.")
+@option("--version", "-V", is_flag=True, help="Show version of proxygrab.")
 @option(
     "--count",
     "-n",
@@ -63,26 +71,30 @@ def coro(f):
     show_default=True,
 )
 @coro
-async def clicmd(save, type: str, outfile: str, count: int, method: str):
+async def clicmd(save, version, type: str, outfile: str, count: int, method: str):
     """
     This a Command Line Utility from ProxyGrab which can be used to get proxies straight in your terminal or to save them to a file.
     """
 
+    # Return the current version
+    if version:
+        return echo(
+            (f"\nProxyGrab Version: {version_pip}\nCopyright: {copyright_pip}\n"),
+        )
+
     # Initially Check if user has provided the proxy type and it is in the supported formats!
     if not type:
-        echo("Check help by proxygrab --help")
-        return
+        return echo("Check help by proxygrab --help")
+
     if type not in proxy_types:
-        echo(f"Only following types are supported: {list_ptypes()}")
-        return
+        return echo(f"Only following types are supported: {list_ptypes()}")
 
     type = type.lower()  # Convert proxytype text to lower
     echo("Fetching proxies...")
 
     # Return if the method provided by user is not available
     if method not in fetch_methods:
-        echo(f"Only following methods are supported: {list_methods()}")
-        return
+        return echo(f"Only following methods are supported: {list_methods()}")
 
     # Use function to get proxies!
     # Default method is 'all'
@@ -96,8 +108,7 @@ async def clicmd(save, type: str, outfile: str, count: int, method: str):
     # If --save flag is not used, print proxies to terminal
     if not save:
         echo(proxies)
-        echo(f"Printed {len(proxies)} {type} proxies to Terminal as list.")
-        return
+        return echo(f"Printed {len(proxies)} {type} proxies to Terminal as list.")
 
     # If no filename defined, use the default one
     if not outfile:

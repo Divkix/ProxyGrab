@@ -28,7 +28,9 @@ jobs:
       - name: Setup
         run: |
           pip3 install --upgrade pip setuptools wheel
-          pip3 install --upgrade -r requirements-dev.txt
+          pip3 install --upgrade poetry
+          poetry config virtualenvs.create false
+          poetry install
 
       - name: Build Docs
         run: |
@@ -40,4 +42,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
-          build-dir: './site'
+          build-dir: "./site"
