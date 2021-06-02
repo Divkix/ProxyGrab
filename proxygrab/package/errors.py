@@ -8,7 +8,7 @@ class MethodNotFound(ProxyGrabError):
     """Exception raised for errors in the input method.
 
     Attributes:
-        salary -- input method which caused the error
+        method -- input method which caused the error
         message -- explanation of the error
     """
 

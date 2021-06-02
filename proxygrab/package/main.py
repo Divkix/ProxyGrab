@@ -3,7 +3,7 @@
 from json import dump
 
 from .api import get_api_proxies
-from .errors import MethodNotFound, ProxyTypeNotFound, UnknownError
+from .errors import MethodNotFound, ProxyTypeNotFound
 from .scrappers import grab_proxies
 
 # Constants Start
