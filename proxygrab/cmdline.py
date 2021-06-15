@@ -101,9 +101,8 @@ async def clicmd(save, version, type: str, outfile: str, count: int, method: str
     proxies = await get_proxy(type, method)
 
     # If user has defined the proxies count, scrap them only
-    if count != 0:
-        if count <= len(proxies):
-            proxies = proxies[0:count]
+    if count != 0 and count <= len(proxies):
+        proxies = proxies[0:count]
 
     # If --save flag is not used, print proxies to terminal
     if not save:

@@ -23,12 +23,7 @@ async def get_proxies_func(ptype: str, method: str):
     method = method.lower()  # Convert method name to lowercase
     ptype = ptype.lower()  # Convert proxy name to lowercase
 
-    if method == "all":  # All Method
-        l1 = await get_api_proxies(ptype)  # Get proxies from Proxyscrape free API
-        l2 = await grab_proxies(ptype)  # Get proxies from scrapper
-        all_proxies = l1 + l2
-
-    elif method == "api":  # API Method
+    if method in ["all", "api"]:  # All Method
         l1 = await get_api_proxies(ptype)  # Get proxies from Proxyscrape free API
         l2 = await grab_proxies(ptype)  # Get proxies from scrapper
         all_proxies = l1 + l2
@@ -122,8 +117,7 @@ async def save_proxy(ptype, method: str = "all"):
 # For all proxy_types
 # These 2 fucntions saves the proxies in dictionary in file
 async def get_all_proxies(method: str = "all"):
-    pdict = {i.upper(): await get_proxy(i, method) for i in proxy_types}
-    return pdict
+    return {i.upper(): await get_proxy(i, method) for i in proxy_types}
 
 
 # save all proxies

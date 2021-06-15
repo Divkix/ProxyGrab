@@ -14,7 +14,7 @@ from .us_proxy import get_us_proxies
 
 async def grab_proxies(ptype: str):
     lst = []
-    if ptype in ("http", "https"):
+    if ptype in {"http", "https"}:
         if ptype == "https":
             lst += await get_ssl_proxies()
         lst += await get_anonymous_proxiesptype(ptype)

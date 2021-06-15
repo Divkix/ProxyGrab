@@ -17,11 +17,7 @@ async def get_socks_proxies(ptype: str):
             data = list(map(lambda x: x.text, row.find_all("td")))
             host = data[0]
             port = data[1]
-            if data[6].lower() == "socks4":
-                version = "socks4"
-            else:
-                version = "socks5"
-
+            version = "socks4" if data[6].lower() == "socks4" else "socks5"
             if version == ptype:
                 proxies.append(f"{host}:{port}")
 
