@@ -35,8 +35,7 @@ async def shiftytr_proxy(p_type: str):
     }
 
     res, _ = await AioHttp.get_text(proxy_map[p_type])
-    p_list = res.split("\n")
-    return p_list
+    return res.split("\n")
 
 
 async def speedx_proxy(p_type: str):
@@ -51,5 +50,4 @@ async def speedx_proxy(p_type: str):
         return []
 
     res, _ = await AioHttp.get_text(proxy_map[p_type])
-    p_list = res.split("\n")
-    return p_list
+    return res.split("\n")

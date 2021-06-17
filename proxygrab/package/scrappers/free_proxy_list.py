@@ -16,11 +16,7 @@ async def get_free_proxy_list_proxies(ptype: str):
             data = list(map(lambda x: x.text, row.find_all("td")))
             host = data[0]
             port = data[1]
-            if data[6].lower() == "yes":
-                version = "https"
-            else:
-                version = "http"
-
+            version = "https" if data[6].lower() == "yes" else "http"
             if version == ptype:
                 proxies.append(f"{host}:{port}")
 
@@ -43,11 +39,7 @@ async def get_anonymous_proxiesptype(ptype: str):
             data = list(map(lambda x: x.text, row.find_all("td")))
             host = data[0]
             port = data[1]
-            if data[6].lower() == "yes":
-                version = "https"
-            else:
-                version = "http"
-
+            version = "https" if data[6].lower() == "yes" else "http"
             if version == ptype:
                 proxies.append(f"{host}:{port}")
 
@@ -69,11 +61,7 @@ async def get_uk_proxies(ptype: str):
             data = list(map(lambda x: x.text, row.find_all("td")))
             host = data[0]
             port = data[1]
-            if data[6].lower() == "yes":
-                version = "https"
-            else:
-                version = "http"
-
+            version = "https" if data[6].lower() == "yes" else "http"
             if version == ptype:
                 proxies.append(f"{host}:{port}")
 
