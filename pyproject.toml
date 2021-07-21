@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ProxyGrab"
-version = "1.0.2"
+version = "1.1.0"
 description = "Asynchronous Library to scrap proxies for my web scrapping applications and other testing purposes"
 authors = ["Divkix <techdroidroot@gmail.com>"]
 license = "MIT"
