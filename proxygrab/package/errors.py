@@ -1,8 +1,6 @@
 class ProxyGrabError(Exception):
     """General class for handling exceptions."""
 
-    pass
-
 
 class MethodNotFound(ProxyGrabError):
     """Exception raised for errors in the input method.
