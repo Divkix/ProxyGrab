@@ -75,7 +75,6 @@ async def clicmd(save, version, type: str, outfile: str, count: int, method: str
     """
     This a Command Line Utility from ProxyGrab which can be used to get proxies straight in your terminal or to save them to a file.
     """
-
     # Return the current version
     if version:
         return echo(
