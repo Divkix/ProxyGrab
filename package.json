@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
       "dev": "mkdocs serve",
-      "build": "mkdocs build -d public"
+      "build": "mkdocs build -d public",
+      "install": "pip install -r requirements-dev.txt"
     }
   }
