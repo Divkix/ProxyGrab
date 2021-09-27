@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "proxygrab/*"
+      - "pypoetry.toml"
   workflow_dispatch:
     inputs:
       version:

@@ -8,7 +8,6 @@
 <a href="https://pypi.org/project/proxygrab/"><img src="https://img.shields.io/pypi/wheel/ProxyGrab.svg" alt="PyPI - Wheel"></a>
 <a href="https://pypi.org/project/proxygrab/"><img src="https://img.shields.io/pypi/pyversions/ProxyGrab.svg" alt="Supported Python Versions"></a>
 <a href="https://pepy.tech/project/ProxyGrab"><img src="https://pepy.tech/badge/ProxyGrab" alt="Downloads"></a>
-<a href="https://proxygrab.netlify.app"><img src="https://api.netlify.com/api/v1/badges/07f64c3d-03c2-48e5-b947-0c75d38ff8ec/deploy-status" alt="Documentation"></a>
 </p>
 
 Asynchronous Library to scrap proxies for my web scrapping applications and other testing purposes. This program just uses [aiohttp](https://pypi.org/project/aiohttp) to get the response from API and return the proxies.
@@ -23,6 +22,5 @@ For contributing, check out the [GitHub](https://github.com/Divkix/ProxyGrab/) r
 Don't forget to :star: if I helped you!
 
 <p align="center">
-<a href="https://results.pre-commit.ci/latest/github/Divkix/ProxyGrab/master"><img src="https://results.pre-commit.ci/badge/github/Divkix/ProxyGrab/master.svg", alt="pre-commit.ci status"></a>
 <a href="https://github.com/Divkix/ProxyGrab/blob/master/LICENSE"><img src="https://img.shields.io/pypi/l/ProxyGrab" alt="PyPI - License"></a>
 </p>

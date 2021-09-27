@@ -8,7 +8,6 @@
 <a href="https://www.codacy.com/gh/Divkix/ProxyGrab/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Divkix/ProxyGrab&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/b5b68ed7f04c4f639bef56df0668d289"/></a>
 <a href="https://pypi.org/project/proxygrab/"><img src="https://img.shields.io/pypi/pyversions/ProxyGrab.svg" alt="Supported Python Versions"></a>
 <a href="https://pepy.tech/project/ProxyGrab"><img src="https://pepy.tech/badge/ProxyGrab" alt="Downloads"></a>
-<a href="https://proxygrab.netlify.com"><img src="https://api.netlify.com/api/v1/badges/07f64c3d-03c2-48e5-b947-0c75d38ff8ec/deploy-status" alt="Documentation"></a>
 </p>
 
 I made this software to scrap proxies for my web scrapping and other testing purposes. This program just uses [aiohttp](https://pypi.org/project/aiohttp/) to get the response from API and return the proxies, also it can scrape proxies from a few sites so that it can be used without using the API.
@@ -22,12 +21,6 @@ The latest version of proxygrab is available via `pip`:
 
 ```shell
 pip install --upgrade proxygrab
-```
-
-Also, you can download the source code and install using:
-
-```shell
-python setup.py install
 ```
 
 ## Provided Proxies
@@ -72,7 +65,7 @@ python setup.py install
 
 ## Documentation
 
-https://proxygrab.netlify.com
+https://proxygrab.vercel.app
 
 ## Contribuiting
 
