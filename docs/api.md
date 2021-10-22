@@ -1,4 +1,4 @@
-# Script Usage
+# API
 
 You can also import the package into your script by using `import proxygrab`
 
