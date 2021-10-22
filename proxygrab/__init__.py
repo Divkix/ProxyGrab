@@ -1,4 +1,4 @@
-__version__ = "1.1.0"
+__version__ = "1.1.2"
 __copyright__ = "Divkix <https://github.com/Divkix>"
 
 # Methods to get proxies!
