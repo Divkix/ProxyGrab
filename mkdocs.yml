@@ -5,11 +5,11 @@ edit_uri: tree/master/docs/
 site_author: Divkix
 use_directory_urls: true
 nav:
-    - Home: index.md
-    - Installation: installation.md
-    - Command Line: console.md
-    - Script: script.md
-    - FAQ: faq.md
+  - Home: index.md
+  - Installation: installation.md
+  - Command Line: console.md
+  - API: api.md
+  - FAQ: faq.md
 theme:
   name: material
   logo: img/circle-icon.png
