@@ -15,12 +15,12 @@ on:
         required: false
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
         os: [ubuntu-latest, macOS-latest, windows-latest]
 
     steps:
@@ -45,3 +45,15 @@ jobs:
 
       - name: Proxygrab Test Module
         run: python test_script.py
+
+  push-to-pypi:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Publish python poetry package
+        uses: JRubics/poetry-publish@v1.9
+        with:
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
