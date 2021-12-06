@@ -8,6 +8,8 @@ on:
       - "proxygrab/*"
       - "pyproject.toml"
       - ".github/workflows/continuous-integration-pip.yml"
+    tags:
+      - "*"
   workflow_dispatch:
     inputs:
       version:
