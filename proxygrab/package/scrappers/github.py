@@ -1,9 +1,11 @@
-from json import loads
+from typing import List
+
+from ujson import loads
 
 from .._utils import AioHttp
 
 
-async def get_github_proxies(p_type: str):
+async def get_github_proxies(p_type: str) -> List[str]:
     lst = []
     lst += await fate0_proxy(p_type)
     lst += await shiftytr_proxy(p_type)
@@ -26,7 +28,7 @@ async def fate0_proxy(p_type: str):
     return p_list
 
 
-async def shiftytr_proxy(p_type: str):
+async def shiftytr_proxy(p_type: str) -> List[str]:
     proxy_map = {
         "http": "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
         "https": "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt",
@@ -38,7 +40,7 @@ async def shiftytr_proxy(p_type: str):
     return res.split("\n")
 
 
-async def speedx_proxy(p_type: str):
+async def speedx_proxy(p_type: str) -> List[str]:
     proxy_map = {
         "http": "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
         "socks4": "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks4.txt",

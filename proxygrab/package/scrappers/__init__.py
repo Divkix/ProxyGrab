@@ -1,6 +1,8 @@
 """Various Scrapper used to scrap proxies from different websites.
 You can find a list of scrappers in the readme file"""
 
+from typing import List
+
 from .free_proxy_list import (
     get_anonymous_proxiesptype,
     get_free_proxy_list_proxies,
@@ -12,7 +14,7 @@ from .sslproxies import get_ssl_proxies
 from .us_proxy import get_us_proxies
 
 
-async def grab_proxies(ptype: str):
+async def grab_proxies(ptype: str) -> List[str]:
     lst = []
     if ptype in {"http", "https"}:
         if ptype == "https":

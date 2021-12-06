@@ -1,6 +1,5 @@
 from asyncio import run
 from functools import wraps
-from re import findall
 
 from click import command, echo, option
 
@@ -10,18 +9,12 @@ from proxygrab import get_proxy
 proxy_types = ("http", "https", "socks4", "socks5")
 fetch_methods = ("all", "api", "scrapper")
 
-# List to str with ', ' as seperator - for mehods
+# List to str with ', ' as seperator - for methods
 list_methods = lambda: ", ".join(fetch_methods)
 
 # List to str with ', ' as seperator - for proxy types
 list_ptypes = lambda: ", ".join(proxy_types)
 
-
-with open("proxygrab/__init__.py", encoding="utf-8") as f:
-    version_pip = findall(r"__version__ = \"(.+)\"", f.read())[0]
-
-with open("proxygrab/__init__.py", encoding="utf-8") as f:
-    copyright_pip = findall(r"__copyright__ = \"(.+)\"", f.read())[0]
 
 # For making it run in async
 def coro(f):
@@ -71,15 +64,10 @@ def coro(f):
     show_default=True,
 )
 @coro
-async def clicmd(save, version, type: str, outfile: str, count: int, method: str):
+async def clicmd(save: bool, type: str, outfile: str, count: int, method: str):
     """
     This a Command Line Utility from ProxyGrab which can be used to get proxies straight in your terminal or to save them to a file.
     """
-    # Return the current version
-    if version:
-        return echo(
-            (f"\nProxyGrab Version: {version_pip}\nCopyright: {copyright_pip}\n"),
-        )
 
     # Initially Check if user has provided the proxy type and it is in the supported formats!
     if not type:

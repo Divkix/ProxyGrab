@@ -15,11 +15,14 @@ theme:
   logo: img/circle-icon.png
   favicon: img/name.png
   palette:
-    scheme: preference
-    primary: teal
-    accent: amber
-  icon:
-    repo: fontawesome/brands/github-alt
+    - scheme: preference
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 plugins:
   - git-revision-date
 extra:

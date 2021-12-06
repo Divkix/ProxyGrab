@@ -1,9 +1,11 @@
+from typing import List
+
 from bs4 import BeautifulSoup
 
 from .._utils import AioHttp
 
 
-async def get_us_proxies(ptype: str):
+async def get_us_proxies(ptype: str) -> List[str]:
     url = "https://www.us-proxy.org"
     response, _ = await AioHttp.get_text(url)
 

@@ -1,10 +1,12 @@
+from typing import List
+
 from bs4 import BeautifulSoup
 
 from .._utils import AioHttp
 
 
 # Socks Proxy Scrapper
-async def get_socks_proxies(ptype: str):
+async def get_socks_proxies(ptype: str) -> List[str]:
     url = "https://www.socks-proxy.net"
     response, _ = await AioHttp.get_text(url)
 

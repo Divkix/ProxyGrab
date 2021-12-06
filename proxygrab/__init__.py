@@ -1,7 +1,3 @@
-__version__ = "1.1.3"
-__copyright__ = "Divkix <https://github.com/Divkix>"
-
-# Methods to get proxies!
 from .package.main import (
     get_all_proxies,
     get_http,

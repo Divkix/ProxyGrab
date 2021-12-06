@@ -1,10 +1,12 @@
+from typing import List
+
 from bs4 import BeautifulSoup
 
 from .._utils import AioHttp
 
 
 # Only HTTPS Proxies
-async def get_ssl_proxies():
+async def get_ssl_proxies() -> List[str]:
     url = "https://www.sslproxies.org/"
     response, _ = await AioHttp.get_text(url)
 

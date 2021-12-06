@@ -1,9 +1,11 @@
+from typing import List
+
 from bs4 import BeautifulSoup
 
 from .._utils import AioHttp
 
 
-async def get_free_proxy_list_proxies(ptype: str):
+async def get_free_proxy_list_proxies(ptype: str) -> List[str]:
     url = "http://www.free-proxy-list.net"
     response, _ = await AioHttp.get_text(url)
 
@@ -26,7 +28,7 @@ async def get_free_proxy_list_proxies(ptype: str):
 
 
 # HTTP and HTTPS Proxies Scrapper
-async def get_anonymous_proxiesptype(ptype: str):
+async def get_anonymous_proxiesptype(ptype: str) -> List[str]:
     url = "https://free-proxy-list.net/anonymous-proxy.html"
     response, _ = await AioHttp.get_text(url)
 
@@ -48,7 +50,7 @@ async def get_anonymous_proxiesptype(ptype: str):
         return []
 
 
-async def get_uk_proxies(ptype: str):
+async def get_uk_proxies(ptype: str) -> List[str]:
     url = "https://free-proxy-list.net/uk-proxy.html"
     response, _ = await AioHttp.get_text(url)
 
