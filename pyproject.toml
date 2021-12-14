@@ -39,7 +39,7 @@ aiohttp = "3.8.1"
 beautifulsoup4 = "4.10.0"
 cchardet = "2.1.7"
 click = "8.0.3"
-lxml = "4.6.5"
+lxml = "4.7.1"
 ujson = "^4.3.0"
 
 [tool.poetry.dev-dependencies]
