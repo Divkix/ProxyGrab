@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ProxyGrab"
-version = "1.2.1"
+version = "1.2.2"
 description = "Asynchronous Library to scrap proxies for my web scrapping applications and other testing purposes"
 authors = ["Divkix <techdroidroot@gmail.com>"]
 license = "MIT"
@@ -43,7 +43,7 @@ lxml = "4.7.1"
 ujson = "^4.3.0"
 
 [tool.poetry.dev-dependencies]
-black = "^21.5b2"
+black = "^22.1"
 isort = "^5.8.0"
 mkdocs = "^1.1.2"
 mkdocs-git-revision-date-plugin = "^0.3.1"
