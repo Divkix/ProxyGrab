@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/Divkix/ProxyGrab"
 repository = "https://github.com/Divkix/ProxyGrab"
-documentation= "https://proxygrab.netlify.app"
+documentation= "https://proxygrab.divkix.me"
 keywords = ["proxygrab", "proxy scrapper", "proxy grabber"]
 classifiers = [
         "Development Status :: 5 - Production/Stable",

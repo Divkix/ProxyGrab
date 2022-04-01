@@ -1,7 +1,7 @@
 # ProxyGrab
 
 <p align="center">
-<a href="https://proxygrab.netlify.app"><img src="img/name.png"></a>
+<a href="https://proxygrab.divkix.me"><img src="img/name.png"></a>
 <i>Software to scrap proxies for my web scrapping and other testing purposes.</i></br></br>
 <a href="https://pypi.org/project/ProxyGrab/"><img src="https://img.shields.io/pypi/v/ProxyGrab" alt="PyPI"></a>
 <a href="https://github.com/Divkix/ProxyGrab/actions"><img src="https://github.com/Divkix/ProxyGrab/workflows/CI%20%28pip%29/badge.svg" alt="CI (pip)"></a>
