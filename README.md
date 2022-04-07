@@ -84,3 +84,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [@JaredLGillespie](https://github.com/JaredLGillespie) for his [proxyscrape library](https://github.com/JaredLGillespie/proxyscrape) from which I took scrappers!
 - Proxy Providers mentioned above
+
+
+[![Sponsor](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=divideprojects&utm_campaign=oss)
