@@ -24,6 +24,3 @@ Don't forget to :star: if I helped you!
 <p align="center">
 <a href="https://github.com/Divkix/ProxyGrab/blob/master/LICENSE"><img src="https://img.shields.io/pypi/l/ProxyGrab" alt="PyPI - License"></a>
 </p>
-
-
-[![Sponsor](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=divideprojects&utm_campaign=oss)
