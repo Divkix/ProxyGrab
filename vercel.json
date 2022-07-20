@@ -1,8 +1,8 @@
 {
-    "routes": [
+    "rewrites": [
         {
-            "src": "/arc-sw.js",
-            "dest": "https://arc.io/arc-sw.js"
+            "source": "/arc-sw.js",
+            "destination": "https://arc.io/arc-sw.js"
         }
     ],
     "github": {
