@@ -56,6 +56,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Publish python poetry package
-        uses: JRubics/poetry-publish@v1.12
+        uses: JRubics/poetry-publish@v1.13
         with:
           pypi_token: ${{ secrets.PYPI_TOKEN }}
