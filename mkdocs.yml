@@ -12,7 +12,6 @@ nav:
   - FAQ: faq.md
 theme:
   name: material
-  custom_dir: docs/overrides
   logo: img/circle-icon.png
   favicon: img/name.png
   palette:
