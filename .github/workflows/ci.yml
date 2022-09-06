@@ -1,22 +1,23 @@
-name: CI (pip)
+name: CI
 
 on:
   push:
     branches:
       - master
-    paths:
-      - "proxygrab/*"
-      - "pyproject.toml"
-      - ".github/workflows/continuous-integration-pip.yml"
     tags:
       - "*"
   workflow_dispatch:
-    inputs:
-      version:
-        description: "Run Reason"
-        required: false
 
 jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - uses: pre-commit/action@v3.0.0
+
   build-and-test:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -24,38 +25,48 @@ jobs:
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
         os: [ubuntu-latest, macOS-latest, windows-latest]
-
     steps:
       - uses: actions/checkout@v3
-
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-
       - name: Install dependencies & Configuring
         run: |
           pip3 install --upgrade pip setuptools wheel
           pip3 install --upgrade poetry
           poetry config virtualenvs.create false
           poetry install
-
       - name: ProxyGrab CLI
         run: |
           proxygrab --help
           proxygrab -h
-
       - name: Proxygrab Test Module
         run: python test_script.py
 
   push-to-pypi:
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: build-and-test
+    needs:
+      - pre-commit
+      - build-and-test
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Publish python poetry package
         uses: JRubics/poetry-publish@v1.13
         with:
           pypi_token: ${{ secrets.PYPI_TOKEN }}
+
+  automerge-dependabot-pr:
+    if: github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'
+    needs:
+      - pre-commit
+      - build-and-test
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v3.3.0
+        with:
+          target: minor
