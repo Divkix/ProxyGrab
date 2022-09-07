@@ -8,41 +8,22 @@ on:
 
 jobs:
   pre-commit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-      - uses: pre-commit/action@v3.0.0
+    uses: divkix/reusable-workflows/.github/workflows/pre-commit.yml@main
 
   build-and-test:
-    name: Build and Test Package
     needs: pre-commit
-    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
         os: [ubuntu-latest, macOS-latest, windows-latest]
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies & Configuring
-        run: |
-          pip3 install --upgrade pip setuptools wheel
-          pip3 install --upgrade poetry
-          poetry config virtualenvs.create false
-          poetry install
-      - name: ProxyGrab CLI
-        run: |
-          proxygrab --help
-          proxygrab -h
-      - name: Proxygrab Test Module
-        run: python test_script.py
+    uses: divkix/reusable-workflows/.github/workflows/build-and-test-python-package.yml@main
+    with:
+      custom_commands: |-
+        proxygrab --help
+        python test_script.py
+      python-version: ${{ matrix.python-version }}
+      os: ${{ matrix.os }}
 
   automerge-dependabot-pr:
     name: Automerge Dependabot PRs
@@ -50,11 +31,4 @@ jobs:
     needs:
       - pre-commit
       - build-and-test
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: write
-    steps:
-      - uses: fastify/github-action-merge-dependabot@v3.3.0
-        with:
-          target: minor
+    uses: divkix/reusable-workflows/.github/workflows/automerge-dependabot-pr.yml@main

@@ -1,4 +1,4 @@
-name: Release
+name: Release Package
 
 on:
   push:
@@ -9,129 +9,60 @@ on:
       version_level:
         type: choice
         description: Which version to release
-        default: 'patch'
         options:
-        - patch
-        - minor
-        - major
+          - patch
+          - minor
+          - major
 
 jobs:
   pre-commit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-      - uses: pre-commit/action@v3.0.0
+    uses: divkix/reusable-workflows/.github/workflows/pre-commit.yml@main
 
   update-version:
-    name: Update package version
-    runs-on: ubuntu-latest
     needs: pre-commit
-    steps:
-      - name: Checkout
-        if: github.event_name == 'workflow_dispatch'
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Bump poetry package
-        if: github.event_name == 'workflow_dispatch'
-        run: |
-          python -m pip install --upgrade pip setuptools wheel
-          pip install --upgrade poetry
-          poetry version ${{ github.event.inputs.version_level }}
-          echo "VERSION=$(poetry version --short)" >> $GITHUB_ENV
-      - uses: EndBug/add-and-commit@v9
-        if: github.event_name == 'workflow_dispatch'
-        with:
-          default_author: github_actions
-          message: 'bump to ${{ env.VERSION }}'
-          tag: 'v${{ env.VERSION }} --force'
-          tag_push: '--force'
+    uses: divkix/reusable-workflows/.github/workflows/update-python-package-version.yml@main
+    with:
+      version_level: ${{ github.event.inputs.version_level }}
 
   # fetch some info from repo such as latest tag and name in lowercase
   get-repo-info:
-    name: Get Repo Info
+    if: always()
     needs: update-version
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout current repo
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: Get Latest Tag
-      id: get_tag
-      run: |-
-        tag="$(git tag | sort -V | tail -1)"
-        echo "::set-output name=tag::$(git tag | sort -V | tail -1)"
-    outputs:
-      tag: ${{ steps.get_tag.outputs.tag }}
+    uses: divkix/reusable-workflows/.github/workflows/get-repo-info.yml@main
 
   build-and-test:
-    name: Build and Test Package
+    if: always()
     needs: get-repo-info
-    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
         os: [ubuntu-latest, macOS-latest, windows-latest]
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: ${{ needs.get-repo-info.outputs.tag }}
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies & Configuring
-        run: |
-          pip3 install --upgrade pip setuptools wheel
-          pip3 install --upgrade poetry
-          poetry config virtualenvs.create false
-          poetry install
-      - name: ProxyGrab CLI
-        run: |
-          proxygrab --help
-          proxygrab -h
-      - name: Proxygrab Test Module
-        run: python test_script.py
+    uses: divkix/reusable-workflows/.github/workflows/build-and-test-python-package.yml@main
+    with:
+      custom_commands: |-
+        proxygrab --help
+        python test_script.py
+      python-version: ${{ matrix.python-version }}
+      os: ${{ matrix.os }}
 
   # create a release on github
-  release:
-    name: Release
-    runs-on: ubuntu-latest
+  create-release:
+    if: always()
     needs:
       - build-and-test
       - get-repo-info
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: ${{ needs.get-repo-info.outputs.tag }}
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          name: ${{ needs.get-repo-info.outputs.tag }}
-          tag_name: ${{ needs.get-repo-info.outputs.tag }}
-          body: |-
-           ${{ github.event.repository.name }} ${{ needs.get-repo-info.outputs.tag }}
+    uses: divkix/reusable-workflows/.github/workflows/create-release.yml@main
+    with:
+      tag: ${{ needs.get-repo-info.outputs.tag }}
 
   push-to-pypi:
-    name: Push to PyPI
+    if: always()
     needs:
-     - release
+     - create-release
      - get-repo-info
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: ${{ needs.get-repo-info.outputs.tag }}
-      - name: Publish python poetry package
-        uses: JRubics/poetry-publish@v1.13
-        with:
-          pypi_token: ${{ secrets.PYPI_TOKEN }}
+    uses: divkix/reusable-workflows/.github/workflows/push-to-pypi.yml@main
+    with:
+      tag: ${{ needs.get-repo-info.outputs.tag }}
+    secrets:
+      PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
