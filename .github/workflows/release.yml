@@ -92,6 +92,12 @@ jobs:
           pip3 install --upgrade poetry
           poetry config virtualenvs.create false
           poetry install
+      - name: ProxyGrab CLI
+        run: |
+          proxygrab --help
+          proxygrab -h
+      - name: Proxygrab Test Module
+        run: python test_script.py
 
   # create a release on github
   release:
