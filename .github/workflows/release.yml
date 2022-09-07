@@ -80,7 +80,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ needs.get-repo-info.outputs.tag }}
+          fetch-depth: 0
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
@@ -99,7 +99,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ needs.get-repo-info.outputs.tag }}
+          fetch-depth: 0
       - name: Publish python poetry package
         uses: JRubics/poetry-publish@v1.13
         with:
@@ -116,7 +116,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: ${{ needs.get-repo-info.outputs.tag }}
+          fetch-depth: 0
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
