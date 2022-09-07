@@ -40,6 +40,7 @@ jobs:
         os: [ubuntu-latest, macOS-latest, windows-latest]
     uses: divkix/reusable-workflows/.github/workflows/build-and-test-python-package.yml@main
     with:
+      tag: ${{ needs.get-repo-info.outputs.tag }}
       custom_commands: |-
         proxygrab --help
         python test_script.py
