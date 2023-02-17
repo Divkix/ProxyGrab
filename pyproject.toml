@@ -43,7 +43,7 @@ lxml = "^4.8.0"
 ujson = "^5.1.0"
 
 [tool.poetry.dev-dependencies]
-black = "^22.1"
+black = "^23.1"
 isort = "^5.8.0"
 mkdocs = "^1.1.2"
 mkdocs-git-revision-date-plugin = "^0.3.1"
