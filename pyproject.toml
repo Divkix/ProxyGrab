@@ -2,7 +2,7 @@
 name = "ProxyGrab"
 version = "1.2.10"
 description = "Asynchronous Library to scrap proxies for my web scrapping applications and other testing purposes"
-authors = ["Divkix <techdroidroot@gmail.com>"]
+authors = ["Divkix <divkix@divkix.me>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/Divkix/ProxyGrab"
